@@ -15,7 +15,7 @@ Unity 2020.2.0b14
 
 ## UPM
 ### 最新
-* https://github.com/bluebackblue/Pad.git?path=unity_Pad/Assets/UPM#0.0.6
+* https://github.com/bluebackblue/Pad.git?path=unity_Pad/Assets/UPM#0.0.1
 ### 開発
 * https://github.com/bluebackblue/Pad.git?path=unity_Pad/Assets/UPM
 
