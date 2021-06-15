@@ -90,5 +90,6 @@ private void FixedUpdate()
 	}
 }
 ```
+### InputManagerAssetへの追加方向
 ![Sample00](/sample00.png)
 
