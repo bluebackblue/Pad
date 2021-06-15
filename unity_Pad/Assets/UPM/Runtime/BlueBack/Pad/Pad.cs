@@ -19,25 +19,54 @@ namespace BlueBack.Pad
 		*/
 		public Engine_Base engine;
 
-		/** カーソル。
+		/** スティック。
 		*/
-		public StatusCursor cursor;
+		public StatusStick stick_l;
+		public StatusStick stick_r;
 
-		/** ホイール。
+		/** アナログ。トリガー。
 		*/
-		public StatusWheel wheel;
+		public StatusAnalog analog_lt2;
+		public StatusAnalog analog_rt2;
 
-		/** 左ボタン。
+		/** メニュー。
 		*/
-		public StatusButton left;
+		public StatusButton menu_l;
+		public StatusButton menu_r;
 
-		/** 右ボタン。
+		/** 十字。
 		*/
-		public StatusButton right;
+		public StatusButton dir_r;
+		public StatusButton dir_d;
+		public StatusButton dir_l;
+		public StatusButton dir_u;
 
-		/** 中ボタン。
+		/** ボタン。
 		*/
-		public StatusButton center;
+		public StatusButton button_r;
+		public StatusButton button_d;
+		public StatusButton button_l;
+		public StatusButton button_u;
+
+		/** ボタン。スティック。
+		*/
+		public StatusButton button_lsr;
+		public StatusButton button_lsd;
+		public StatusButton button_lsl;
+		public StatusButton button_lsu;
+		public StatusButton button_rsr;
+		public StatusButton button_rsd;
+		public StatusButton button_rsl;
+		public StatusButton button_rsu;
+
+		/** ボタン。トリガー。
+		*/
+		public StatusButton button_lt1;
+		public StatusButton button_lt2;
+		public StatusButton button_lt3;
+		public StatusButton button_rt1;
+		public StatusButton button_rt2;
+		public StatusButton button_rt3;
 
 		/** constructor
 		*/
@@ -74,11 +103,49 @@ namespace BlueBack.Pad
 			this.engine.Create();
 
 			//Init
-			this.cursor.Init();
-			this.wheel.Init();
-			this.left.Init(a_param);
-			this.right.Init(a_param);
-			this.center.Init(a_param);
+			{
+				//スティック。
+				this.stick_l.Init();
+				this.stick_r.Init();
+
+				//アナログ。トリガー。
+				this.analog_lt2.Init();
+				this.analog_rt2.Init();
+
+				//メニュー。
+				this.menu_l.Init(a_param);
+				this.menu_r.Init(a_param);
+
+				//十字。
+				this.dir_r.Init(a_param);
+				this.dir_d.Init(a_param);
+				this.dir_l.Init(a_param);
+				this.dir_u.Init(a_param);
+
+				//ボタン。
+				this.button_r.Init(a_param);
+				this.button_d.Init(a_param);
+				this.button_l.Init(a_param);
+				this.button_u.Init(a_param);
+
+				//ボタン。スティック。
+				this.button_lsr.Init(a_param);
+				this.button_lsd.Init(a_param);
+				this.button_lsl.Init(a_param);
+				this.button_lsu.Init(a_param);
+				this.button_rsr.Init(a_param);
+				this.button_rsd.Init(a_param);
+				this.button_rsl.Init(a_param);
+				this.button_rsu.Init(a_param);
+
+				//ボタン。トリガー。
+				this.button_lt1.Init(a_param);
+				this.button_lt2.Init(a_param);
+				this.button_lt3.Init(a_param);
+				this.button_rt1.Init(a_param);
+				this.button_rt2.Init(a_param);
+				this.button_rt3.Init(a_param);
+			}
 		}
 
 		/** [IDisposable]Dispose。
@@ -98,54 +165,217 @@ namespace BlueBack.Pad
 		*/
 		public void Reset()
 		{
-			//cursor
-			this.cursor.Reset();
+			//スティック。
+			this.stick_l.Reset();
+			this.stick_r.Reset();
 
-			//wheel
-			this.wheel.Reset();
+			//アナログ。トリガー。
+			this.analog_lt2.Reset();
+			this.analog_rt2.Reset();
 
-			//button
-			this.left.Reset();
-			this.right.Reset();
-			this.center.Reset();
+			//メニュー。
+			this.menu_l.Reset();
+			this.menu_r.Reset();
+
+			//十字。
+			this.dir_r.Reset();
+			this.dir_d.Reset();
+			this.dir_l.Reset();
+			this.dir_u.Reset();
+
+			//ボタン。
+			this.button_r.Reset();
+			this.button_d.Reset();
+			this.button_l.Reset();
+			this.button_u.Reset();
+
+			//ボタン。スティック。
+			this.button_lsr.Reset();
+			this.button_lsd.Reset();
+			this.button_lsl.Reset();
+			this.button_lsu.Reset();
+			this.button_rsr.Reset();
+			this.button_rsd.Reset();
+			this.button_rsl.Reset();
+			this.button_rsu.Reset();
+
+			//ボタン。トリガー。
+			this.button_lt1.Reset();
+			this.button_lt2.Reset();
+			this.button_lt3.Reset();
+			this.button_rt1.Reset();
+			this.button_rt2.Reset();
+			this.button_rt3.Reset();
 		}
 
 		/** DeviceUpdate
 		*/
 		public void DeviceUpdate()
 		{
-			//cursor
-			this.cursor.pos = this.engine.GetCursorPos();
+			//スティック。
+			this.stick_l.pos_old = this.stick_l.pos;
+			this.stick_l.pos = this.engine.GetStickL();
+			this.stick_r.pos_old = this.stick_r.pos;
+			this.stick_r.pos = this.engine.GetStickR();
 
-			//pos
-			this.wheel.device_accumulation += this.engine.GetWheelDelta();
+			//アナログ。トリガー。
+			this.analog_lt2.value_old = this.analog_lt2.value;
+			this.analog_lt2.value = this.engine.GetTriggerL2();
+			this.analog_rt2.value_old = this.analog_rt2.value;
+			this.analog_rt2.value = this.engine.GetTriggerR2();
 
 			//最新の状態。
-			this.left.device = this.engine.GetLeftButton();
-			this.right.device = this.engine.GetRightButton();
-			this.center.device =this.engine.GetCenterButton();
+			{
+				//メニュー。
+				this.menu_l.device = this.engine.GetMenuL();
+				this.menu_r.device = this.engine.GetMenuR();
+
+				//十字。
+				this.dir_r.device = this.engine.GetDirR();
+				this.dir_d.device = this.engine.GetDirD();
+				this.dir_l.device = this.engine.GetDirL();
+				this.dir_u.device = this.engine.GetDirU();
+
+				//ボタン。
+				this.button_r.device = this.engine.GetButtonR();
+				this.button_d.device = this.engine.GetButtonD();
+				this.button_l.device = this.engine.GetButtonL();
+				this.button_u.device = this.engine.GetButtonU();
+
+				//ボタン。スティック。
+				this.button_lsr.device = this.stick_l.pos.x > 0.5f;
+				this.button_lsd.device = this.stick_l.pos.y > 0.5f;
+				this.button_lsl.device = this.stick_l.pos.x < -0.5f;
+				this.button_lsu.device = this.stick_l.pos.y < -0.5f;
+				this.button_rsr.device = this.stick_r.pos.x > 0.5f;
+				this.button_rsd.device = this.stick_r.pos.y > 0.5f;
+				this.button_rsl.device = this.stick_r.pos.x < -0.5f;
+				this.button_rsu.device = this.stick_r.pos.y < -0.5f;
+
+				//ボタン。トリガー。
+				this.button_lt1.device = this.engine.GetTriggerL1();
+				this.button_lt2.device = this.analog_lt2.value > 0.5f;
+				this.button_lt3.device = this.engine.GetTriggerL3();
+				this.button_rt1.device = this.engine.GetTriggerR1();
+				this.button_rt2.device = this.analog_rt2.value > 0.5f;
+				this.button_rt3.device = this.engine.GetTriggerR3();
+			}
 
 			//累積。
-			this.left.device_accumulation |= this.left.device;
-			this.right.device_accumulation |= this.right.device;
-			this.center.device_accumulation |= this.center.device;
+			{
+				//メニュー。
+				this.menu_l.device |= this.menu_l.device;
+				this.menu_r.device |= this.menu_r.device;
+
+				//十字。
+				this.dir_r.device_accumulation |= this.dir_r.device;
+				this.dir_d.device_accumulation |= this.dir_d.device;
+				this.dir_l.device_accumulation |= this.dir_l.device;
+				this.dir_u.device_accumulation |= this.dir_u.device;
+
+				//ボタン。
+				this.button_r.device_accumulation |= this.button_r.device;
+				this.button_d.device_accumulation |= this.button_d.device;
+				this.button_l.device_accumulation |= this.button_l.device;
+				this.button_u.device_accumulation |= this.button_u.device;
+
+				//ボタン。スティック。
+				this.button_lsr.device_accumulation |= this.button_lsr.device;
+				this.button_lsd.device_accumulation |= this.button_lsd.device;
+				this.button_lsl.device_accumulation |= this.button_lsl.device;
+				this.button_lsu.device_accumulation |= this.button_lsu.device;
+				this.button_rsr.device_accumulation |= this.button_rsr.device;
+				this.button_rsd.device_accumulation |= this.button_rsd.device;
+				this.button_rsl.device_accumulation |= this.button_rsl.device;
+				this.button_rsu.device_accumulation |= this.button_rsu.device;
+
+				//ボタン。トリガー。
+				this.button_lt1.device_accumulation |= this.button_lt1.device;
+				this.button_lt2.device_accumulation |= this.button_lt2.device;
+				this.button_lt3.device_accumulation |= this.button_lt3.device;
+				this.button_rt1.device_accumulation |= this.button_rt1.device;
+				this.button_rt2.device_accumulation |= this.button_rt2.device;
+				this.button_rt3.device_accumulation |= this.button_rt3.device;
+			}
 		}
 
 		/** StatusUpdate
 		*/
 		public void StatusUpdate()
 		{
-			//button
-			this.left.Update();
-			this.right.Update();
-			this.center.Update();
-			this.left.device_accumulation = this.left.device;
-			this.right.device_accumulation = this.right.device;
-			this.center.device_accumulation = this.center.device;
+			//更新。
+			{
+				//メニュー。
+				this.menu_l.Update();
+				this.menu_r.Update();
 
-			//wheel
-			this.wheel.Update();
-			this.wheel.device_accumulation = new UnityEngine.Vector2(0.0f,0.0f);
+				//十字。
+				this.dir_r.Update();
+				this.dir_d.Update();
+				this.dir_l.Update();
+				this.dir_u.Update();
+
+				//ボタン。
+				this.button_r.Update();
+				this.button_d.Update();
+				this.button_l.Update();
+				this.button_u.Update();
+
+				//ボタン。スティック。
+				this.button_lsr.Update();
+				this.button_lsd.Update();
+				this.button_lsl.Update();
+				this.button_lsu.Update();
+				this.button_rsr.Update();
+				this.button_rsd.Update();
+				this.button_rsl.Update();
+				this.button_rsu.Update();
+
+				//ボタン。トリガー。
+				this.button_lt1.Update();
+				this.button_lt2.Update();
+				this.button_lt3.Update();
+				this.button_rt1.Update();
+				this.button_rt2.Update();
+				this.button_rt3.Update();
+			}
+
+			//累積リセット。
+			{
+				//メニュー。
+				this.menu_l.device_accumulation = this.menu_l.device;
+				this.menu_r.device_accumulation = this.menu_r.device;
+
+				//十字。
+				this.dir_r.device_accumulation = this.dir_r.device;
+				this.dir_d.device_accumulation = this.dir_d.device;
+				this.dir_l.device_accumulation = this.dir_l.device;
+				this.dir_u.device_accumulation = this.dir_u.device;
+
+				//ボタン。
+				this.button_r.device_accumulation = this.button_r.device;
+				this.button_d.device_accumulation = this.button_d.device;
+				this.button_l.device_accumulation = this.button_l.device;
+				this.button_u.device_accumulation = this.button_u.device;
+
+				//ボタン。スティック。
+				this.button_lsr.device_accumulation = this.button_lsr.device;
+				this.button_lsd.device_accumulation = this.button_lsd.device;
+				this.button_lsl.device_accumulation = this.button_lsl.device;
+				this.button_lsu.device_accumulation = this.button_lsu.device;
+				this.button_rsr.device_accumulation = this.button_rsr.device;
+				this.button_rsd.device_accumulation = this.button_rsd.device;
+				this.button_rsl.device_accumulation = this.button_rsl.device;
+				this.button_rsu.device_accumulation = this.button_rsu.device;
+
+				//ボタン。トリガー。
+				this.button_lt1.device_accumulation = this.button_lt1.device;
+				this.button_lt2.device_accumulation = this.button_lt2.device;
+				this.button_lt3.device_accumulation = this.button_lt3.device;
+				this.button_rt1.device_accumulation = this.button_rt1.device;
+				this.button_rt2.device_accumulation = this.button_rt2.device;
+				this.button_rt3.device_accumulation = this.button_rt3.device;
+			}
 		}
 	}
 }

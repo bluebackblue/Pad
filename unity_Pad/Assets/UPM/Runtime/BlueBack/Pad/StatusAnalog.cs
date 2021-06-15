@@ -11,26 +11,29 @@
 */
 namespace BlueBack.Pad
 {
-	/** StatusCursor
+	/** StatusAnalog
 	*/
-	public struct StatusCursor
+	public struct StatusAnalog
 	{
 		/** 位置。
 		*/
-		public UnityEngine.Vector2 pos;
+		public float value;
+		public float value_old;
 
 		/** リセット。
 		*/
 		public void Reset()
 		{
-			this.pos = new UnityEngine.Vector2(0.0f,0.0f);
+			this.value = 0.0f;
+			this.value_old =  0.0f;
 		}
 
 		/** 初期化。
 		*/
 		public void Init()
 		{
-			this.pos = new UnityEngine.Vector2(0.0f,0.0f);
+			this.value =  0.0f;
+			this.value_old =  0.0f;
 		}
 	}
 }

@@ -23,25 +23,78 @@ namespace BlueBack.Pad
 		*/
 		void Delete();
 
-		/** GetCursorPos
+		/** [BlueBack.Pad.Engine_Base]スティック。左。取得。
 		*/
-		UnityEngine.Vector2 GetCursorPos();
+		UnityEngine.Vector2 GetStickL();
 
-		/** GetLeftButton
+		/** [BlueBack.Pad.Engine_Base]スティック。左。取得。
 		*/
-		bool GetLeftButton();
+		UnityEngine.Vector2 GetStickR();
 
-		/** GetRightButton
+		/** [BlueBack.Pad.Engine_Base]十字。右。取得。
 		*/
-		bool GetRightButton();
+		bool GetDirR();
 
-		/** GetCenterButton
+		/** [BlueBack.Pad.Engine_Base]十字。下。取得。
 		*/
-		bool GetCenterButton();
+		bool GetDirD();
 
-		/** GetWheelDelta
+		/** [BlueBack.Pad.Engine_Base]十字。左。取得。
 		*/
-		UnityEngine.Vector2 GetWheelDelta();
+		bool GetDirL();
+
+		/** [BlueBack.Pad.Engine_Base]十字。上。取得。
+		*/
+		bool GetDirU();
+
+		/** [BlueBack.Pad.Engine_Base]ボタン。右。取得。
+		*/
+		bool GetButtonR();
+
+		/** [BlueBack.Pad.Engine_Base]ボタン。下。取得。
+		*/
+		bool GetButtonD();
+
+		/** [BlueBack.Pad.Engine_Base]ボタン。左。取得。
+		*/
+		bool GetButtonL();
+
+		/** [BlueBack.Pad.Engine_Base]ボタン。上。取得。
+		*/
+		bool GetButtonU();
+
+		/** [BlueBack.Pad.Engine_Base]トリガー。左１。取得。
+		*/
+		bool GetTriggerL1();
+
+		/** [BlueBack.Pad.Engine_Base]トリガー。左２。取得。
+		*/
+		float GetTriggerL2();
+
+		/** [BlueBack.Pad.Engine_Base]トリガー。左３。取得。
+		*/
+		bool GetTriggerL3();
+
+		/** [BlueBack.Pad.Engine_Base]トリガー。右１。取得。
+		*/
+		bool GetTriggerR1();
+
+		/** [BlueBack.Pad.Engine_Base]トリガー。右２。取得。
+		*/
+		float GetTriggerR2();
+
+		/** [BlueBack.Pad.Engine_Base]トリガー。右３。取得。
+		*/
+		bool GetTriggerR3();
+
+		/** [BlueBack.Pad.Engine_Base]メニュー。左。取得。
+		*/
+		bool GetMenuL();
+
+		/** [BlueBack.Pad.Engine_Base]メニュー。右。取得。
+		*/
+		bool GetMenuR();
+
 	}
 }
 
