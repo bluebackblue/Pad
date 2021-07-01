@@ -601,7 +601,6 @@ namespace BlueBack.Pad.UIM
 					//アナログスティック。
 
 					a_item.dead = 0.1f;
-					a_item.invert = true;
 					a_item.type = Item.Type.JoyStickAxis;
 					a_item.axis = Item.Axis.Axis5;
 					a_item.joyNum = a_controller_index;
@@ -611,7 +610,7 @@ namespace BlueBack.Pad.UIM
 					//十字。
 
 					a_item.type = Item.Type.JoyStickAxis;
-					a_item.axis = Item.Axis.Axis6;
+					a_item.axis = Item.Axis.Axis7;
 					a_item.joyNum = a_controller_index;
 				}break;
 			case "x_dir_y":
@@ -620,7 +619,7 @@ namespace BlueBack.Pad.UIM
 
 					a_item.invert = true;
 					a_item.type = Item.Type.JoyStickAxis;
-					a_item.axis = Item.Axis.Axis7;
+					a_item.axis = Item.Axis.Axis8;
 					a_item.joyNum = a_controller_index;
 				}break;
 			case "x_button_r":

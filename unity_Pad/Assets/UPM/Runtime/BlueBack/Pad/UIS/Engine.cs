@@ -7,9 +7,9 @@
 */
 
 
-/** BlueBack.Pad.UIM
+/** BlueBack.Pad.UIS
 */
-namespace BlueBack.Pad.UIM
+namespace BlueBack.Pad.UIS
 {
 	/** Engine
 	*/
@@ -42,86 +42,118 @@ namespace BlueBack.Pad.UIM
 		*/
 		public UnityEngine.Vector2 GetStickL()
 		{
-			return new UnityEngine.Vector2(UnityEngine.Input.GetAxis(this.param.stick_lx),UnityEngine.Input.GetAxis(this.param.stick_ly));
+			if(this.param.device != null){
+				return new UnityEngine.Vector2(this.param.device.leftStick.x.ReadValue(),this.param.device.leftStick.y.ReadValue());
+			}
+			return new UnityEngine.Vector2(0.0f,0.0f);
 		}
 
 		/** [BlueBack.Pad.Engine_Base]スティック。左。取得。
 		*/
 		public UnityEngine.Vector2 GetStickR()
 		{
-			return new UnityEngine.Vector2(UnityEngine.Input.GetAxis(this.param.stick_rx),UnityEngine.Input.GetAxis(this.param.stick_ry));
+			if(this.param.device != null){
+				return new UnityEngine.Vector2(this.param.device.rightStick.x.ReadValue(),this.param.device.rightStick.y.ReadValue());
+			}
+			return new UnityEngine.Vector2(0.0f,0.0f);
 		}
 
 		/** [BlueBack.Pad.Engine_Base]ボタン左側。右。取得。
 		*/
 		public bool GetDirR()
 		{
-			return UnityEngine.Input.GetAxis(this.param.dir_x) > 0.5f;
+			if(this.param.device != null){
+				return this.param.device.dpad.right.isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]ボタン左側。下。取得。
 		*/
 		public bool GetDirD()
 		{
-			return UnityEngine.Input.GetAxis(this.param.dir_y) > 0.5f;
+			if(this.param.device != null){
+				return this.param.device.dpad.down.isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]ボタン左側。左。取得。
 		*/
 		public bool GetDirL()
 		{
-			return UnityEngine.Input.GetAxis(this.param.dir_x) < -0.5f;
+			if(this.param.device != null){
+				return this.param.device.dpad.left.isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]ボタン左側。上。取得。
 		*/
 		public bool GetDirU()
 		{
-			return UnityEngine.Input.GetAxis(this.param.dir_y) < -0.5f;
+			if(this.param.device != null){
+				return this.param.device.dpad.up.isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]ボタン右側。右。取得。
 		*/
 		public bool GetButtonR()
 		{
-			return UnityEngine.Input.GetButton(this.param.button_r);
+			if(this.param.device != null){
+				return this.param.device.buttonEast.isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]ボタン右側。下。取得。
 		*/
 		public bool GetButtonD()
 		{
-			return UnityEngine.Input.GetButton(this.param.button_d);
+			if(this.param.device != null){
+				return this.param.device.buttonSouth.isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]ボタン右側。左。取得。
 		*/
 		public bool GetButtonL()
 		{
-			return UnityEngine.Input.GetButton(this.param.button_l);
+			if(this.param.device != null){
+				return this.param.device.buttonWest.isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]ボタン右側。上。取得。
 		*/
 		public bool GetButtonU()
 		{
-			return UnityEngine.Input.GetButton(this.param.button_u);
+			if(this.param.device != null){
+				return this.param.device.buttonNorth.isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]トリガー。左１。取得。
 		*/
 		public bool GetTriggerL1()
 		{
-			return UnityEngine.Input.GetButton(this.param.trigger_l1);
+			if(this.param.device != null){
+				return this.param.device.leftShoulder.isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]トリガー。左２。取得。
 		*/
 		public float GetTriggerL2()
 		{
-			float t_value = UnityEngine.Input.GetAxis(this.param.trigger_l2);
-			if(t_value != 0.0f){
-				return UnityEngine.Mathf.Clamp01((t_value + this.param.trigger_add) * this.param.trigger_mul);
+			if(this.param.device != null){
+				return this.param.device.leftTrigger.ReadValue();
 			}
 			return 0.0f;
 		}
@@ -130,23 +162,28 @@ namespace BlueBack.Pad.UIM
 		*/
 		public bool GetTriggerL3()
 		{
-			return UnityEngine.Input.GetButton(this.param.trigger_l3);
+			if(this.param.device != null){
+				return this.param.device.leftStickButton.isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]トリガー。右１。取得。
 		*/
 		public bool GetTriggerR1()
 		{
-			return UnityEngine.Input.GetButton(this.param.trigger_r1);
+			if(this.param.device != null){
+				return this.param.device.rightShoulder.isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]トリガー。右２。取得。
 		*/
 		public float GetTriggerR2()
 		{
-			float t_value = UnityEngine.Input.GetAxis(this.param.trigger_r2);
-			if(t_value != 0.0f){
-				return UnityEngine.Mathf.Clamp01((t_value + this.param.trigger_add) * this.param.trigger_mul);
+			if(this.param.device != null){
+				return this.param.device.rightTrigger.ReadValue();
 			}
 			return 0.0f;
 		}
@@ -155,21 +192,30 @@ namespace BlueBack.Pad.UIM
 		*/
 		public bool GetTriggerR3()
 		{
-			return UnityEngine.Input.GetButton(this.param.trigger_r3);
+			if(this.param.device != null){
+				return this.param.device.rightStickButton.isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]メニュー。左。取得。
 		*/
 		public bool GetMenuL()
 		{
-			return UnityEngine.Input.GetButton(this.param.menu_l);
+			if(this.param.device != null){
+				return this.param.device.selectButton.isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]メニュー。右。取得。
 		*/
 		public bool GetMenuR()
 		{
-			return UnityEngine.Input.GetButton(this.param.menu_r);
+			if(this.param.device != null){
+				return this.param.device.startButton.isPressed;
+			}
+			return false;
 		}
 	}
 }

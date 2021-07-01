@@ -38,33 +38,42 @@ namespace BlueBack.Pad.UIM
 			A_2,
 		}
 
-		//アナログスティック。
+		/** アナログスティック。
+		*/
 		public string stick_lx;
 		public string stick_ly;
 		public string stick_rx;
 		public string stick_ry;
 
-		//十字。
+		/** 十字。
+		*/
 		public string dir_x;
 		public string dir_y;
 
-		//ボタン。
+		/** ボタン。
+		*/
 		public string button_r;
 		public string button_d;
 		public string button_l;
 		public string button_u;
 
-		//トリガー。
+		/** トリガー。
+		*/
 		public string trigger_l1;
 		public string trigger_l2;
 		public string trigger_l3;
 		public string trigger_r1;
 		public string trigger_r2;
 		public string trigger_r3;
+		public float trigger_mul;
+		public float trigger_add;
 
-		//メニュー。
+		/** メニュー。
+		*/
 		public string menu_l;
 		public string menu_r;
+
+		
 
 		/** constructor
 		*/
@@ -108,6 +117,21 @@ namespace BlueBack.Pad.UIM
 			case ParamType.A_2:
 				{
 					t_prefix = "a2_";
+				}break;
+			}
+
+			switch(a_type){
+			case ParamType.PS_1:
+			case ParamType.PS_2:
+			case ParamType.PS_ALL:
+				{
+					this.trigger_add = 1.0f;
+					this.trigger_mul = 0.5f;
+				}break;
+			default:
+				{
+					this.trigger_add = 0.0f;
+					this.trigger_mul = 1.0f;
 				}break;
 			}
 

@@ -1,8 +1,8 @@
 
 
-/** Samples.Pad.Simple
+/** Samples.Pad.InputSystem
 */
-namespace Samples.Pad.Simple
+namespace Samples.Pad.InputSystem
 {
 	/** Main_MonoBehaviour
 	*/
@@ -21,13 +21,13 @@ namespace Samples.Pad.Simple
 		private void Start()
 		{
 			//Param
-			BlueBack.Pad.UIM.Param t_param = new BlueBack.Pad.UIM.Param(BlueBack.Pad.UIM.Param.ParamType.X_ALL);
+			BlueBack.Pad.UIS.Param t_param = new BlueBack.Pad.UIS.Param(UnityEngine.InputSystem.Gamepad.current);
 
 			//Update用。
-			this.pad = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.Update,new BlueBack.Pad.Param(),new BlueBack.Pad.UIM.Engine(t_param));
+			this.pad = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.Update,new BlueBack.Pad.Param(),new BlueBack.Pad.UIS.Engine(t_param));
 
 			//FixedUpdate用。
-			this.pad_fixedupdate = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.FixedUpdate,new BlueBack.Pad.Param(),new BlueBack.Pad.UIM.Engine(t_param));
+			this.pad_fixedupdate = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.FixedUpdate,new BlueBack.Pad.Param(),new BlueBack.Pad.UIS.Engine(t_param));
 		}
 
 		/** OnDestroy

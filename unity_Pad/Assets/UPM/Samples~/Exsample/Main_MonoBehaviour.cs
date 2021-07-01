@@ -79,6 +79,34 @@ namespace Samples.Pad.Exsample
 			UnityEngine.Application.targetFrameRate = 10;
 		}
 
+		/** OnDestroy
+		*/
+		private void OnDestroy()
+		{
+			#if(PAD_UPDATE)
+			if(this.pad_update != null){
+				this.pad_update.Dispose();
+				this.pad_update = null;
+			}
+			#endif
+
+			#if(PAD_FIXEDUPDATE)
+			if(this.pad_fixedupdate != null){
+				this.pad_fixedupdate.Dispose();
+				this.pad_fixedupdate = null;
+			}
+			#endif
+
+			#if(PAD_MANUAL)
+			if(this.pad_manual != null){
+				this.pad_manual.Dispose();
+				this.pad_manual = null;
+			}
+			#endif
+
+			BlueBack.UnityPlayerLoop.UnityPlayerLoop.SetPlayerLoop(BlueBack.UnityPlayerLoop.UnityPlayerLoop.GetDefaultPlayerLoop());
+		}
+
 		/** Update
 		*/
 		private void Update()

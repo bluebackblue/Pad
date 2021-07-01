@@ -15,7 +15,7 @@ Unity 2021.1.11f1
 
 ## UPM
 ### 最新
-* https://github.com/bluebackblue/Pad.git?path=unity_Pad/Assets/UPM#0.0.3
+* https://github.com/bluebackblue/Pad.git?path=unity_Pad/Assets/UPM#0.0.4
 ### 開発
 * https://github.com/bluebackblue/Pad.git?path=unity_Pad/Assets/UPM
 
