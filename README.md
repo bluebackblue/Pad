@@ -8,6 +8,7 @@ MIT License
 * https://github.com/bluebackblue/Pad/blob/main/LICENSE
 
 ## 外部依存 / 使用ライセンス等
+Unity.InputSystem
 * https://github.com/bluebackblue/UnityPlayerLoop
 
 ## 動作確認

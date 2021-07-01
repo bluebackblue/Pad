@@ -94,6 +94,7 @@ namespace Editor
 					(in BlueBack.UpmVersionManager.Editor.Object_Setting.Creator_Argument a_argument) => {
 						return new string[]{
 							"## 外部依存 / 使用ライセンス等",
+							"Unity.InputSystem",
 							"* " + a_argument.param.author_url + "/" + "UnityPlayerLoop",
 							//"### サンプルのみ",
 							//"* " + a_argument.param.author_url + "/" + "AssetLib",
