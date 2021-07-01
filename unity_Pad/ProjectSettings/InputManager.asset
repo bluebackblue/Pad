@@ -1281,7 +1281,7 @@ InputManager:
     dead: 0.1
     sensitivity: 1
     snap: 0
-    invert: 1
+    invert: 0
     type: 2
     axis: 4
     joyNum: 0
@@ -1299,7 +1299,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 5
+    axis: 6
     joyNum: 0
   - serializedVersion: 3
     m_Name: x0_dir_y
@@ -1315,7 +1315,7 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
-    axis: 6
+    axis: 7
     joyNum: 0
   - serializedVersion: 3
     m_Name: x0_button_r
@@ -1569,7 +1569,7 @@ InputManager:
     dead: 0.1
     sensitivity: 1
     snap: 0
-    invert: 1
+    invert: 0
     type: 2
     axis: 4
     joyNum: 1
@@ -1587,7 +1587,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 5
+    axis: 6
     joyNum: 1
   - serializedVersion: 3
     m_Name: x1_dir_y
@@ -1603,7 +1603,7 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
-    axis: 6
+    axis: 7
     joyNum: 1
   - serializedVersion: 3
     m_Name: x1_button_r
@@ -1857,7 +1857,7 @@ InputManager:
     dead: 0.1
     sensitivity: 1
     snap: 0
-    invert: 1
+    invert: 0
     type: 2
     axis: 4
     joyNum: 2
@@ -1875,7 +1875,7 @@ InputManager:
     snap: 0
     invert: 0
     type: 2
-    axis: 5
+    axis: 6
     joyNum: 2
   - serializedVersion: 3
     m_Name: x2_dir_y
@@ -1891,7 +1891,7 @@ InputManager:
     snap: 0
     invert: 1
     type: 2
-    axis: 6
+    axis: 7
     joyNum: 2
   - serializedVersion: 3
     m_Name: x2_button_r
