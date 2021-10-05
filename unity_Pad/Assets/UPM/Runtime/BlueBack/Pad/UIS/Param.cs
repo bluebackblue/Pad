@@ -13,6 +13,7 @@ namespace BlueBack.Pad.UIS
 {
 	/** Param
 	*/
+	#if(DEF_BLUEBACK_PAD_UIS)
 	public class Param
 	{
 		/** device
@@ -26,5 +27,6 @@ namespace BlueBack.Pad.UIS
 			this.device = a_device;
 		}
 	}
+	#endif
 }
 

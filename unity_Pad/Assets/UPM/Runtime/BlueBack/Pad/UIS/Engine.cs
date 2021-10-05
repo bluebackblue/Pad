@@ -13,6 +13,7 @@ namespace BlueBack.Pad.UIS
 {
 	/** Engine
 	*/
+	#if(DEF_BLUEBACK_PAD_UIS)
 	public class Engine : Engine_Base
 	{
 		/** param
@@ -218,5 +219,6 @@ namespace BlueBack.Pad.UIS
 			return false;
 		}
 	}
+	#endif
 }
 

@@ -1,6 +1,6 @@
 {
     "name": "BlueBack.Pad",
-    "rootNamespace": "",
+    "rootNamespace": "BlueBack.Pad",
     "references": [
         "GUID:b22b8d1b216773d45ace17916a84886c",
         "GUID:75469ad4d38634e559750d17036d5f7c"
@@ -12,6 +12,12 @@
     "precompiledReferences": [],
     "autoReferenced": true,
     "defineConstraints": [],
-    "versionDefines": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.inputsystem",
+            "expression": "",
+            "define": "DEF_BLUEBACK_PAD_UIS"
+        }
+    ],
     "noEngineReferences": false
 }
