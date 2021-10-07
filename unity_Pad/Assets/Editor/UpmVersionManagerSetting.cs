@@ -56,15 +56,57 @@ namespace Editor
 				//packagejson_dependencies
 				t_param.packagejson_dependencies = new System.Collections.Generic.Dictionary<string,string>();
 
-				//asmdef_reference
-				t_param.asmdef_reference = new string[]{
-					"BlueBack.UnityPlayerLoop",
-					"Unity.InputSystem",
+				//asmdef_runtime
+				t_param.asmdef_runtime = new BlueBack.UpmVersionManager.Editor.Object_Setting.Param.AsmdefItem{
+					reference_list = new BlueBack.UpmVersionManager.Editor.Object_Setting.Param.AsmdefReferenceItem[]{
+						new BlueBack.UpmVersionManager.Editor.Object_Setting.Param.AsmdefReferenceItem(){
+							package_name = "BlueBack.UnityPlayerLoop",
+							url = t_param.git_url + t_param.git_author + "/UnityPlayerLoop",
+						},
+						new BlueBack.UpmVersionManager.Editor.Object_Setting.Param.AsmdefReferenceItem(){
+							package_name = "Unity.InputSystem",
+							url = "https://docs.unity3d.com/ja/2019.4/Manual/com.unity.inputsystem.html",
+						},
+					},
+					versiondefine_list = new BlueBack.UpmVersionManager.Editor.Object_Setting.Param.AsmdefVersionDefineItem[]{
+						new BlueBack.UpmVersionManager.Editor.Object_Setting.Param.AsmdefVersionDefineItem(){
+							name = "com.unity.inputsystem",
+							define = "DEF_BLUEBACK_PAD_UIS",
+							expression = "",
+						}
+					},
 				};
 
-				//editorasmdef_reference
-				t_param.editorasmdef_reference = new string[]{
-					"BlueBack.Pad",
+				//asmdef_editor
+				t_param.asmdef_editor = new BlueBack.UpmVersionManager.Editor.Object_Setting.Param.AsmdefItem{
+					reference_list = new BlueBack.UpmVersionManager.Editor.Object_Setting.Param.AsmdefReferenceItem[]{
+						new BlueBack.UpmVersionManager.Editor.Object_Setting.Param.AsmdefReferenceItem(){
+							package_name = "BlueBack.Pad",
+							url = t_param.git_url + t_param.git_author + "/Pad",
+						},
+					},
+					versiondefine_list = new BlueBack.UpmVersionManager.Editor.Object_Setting.Param.AsmdefVersionDefineItem[]{
+					},
+				};
+
+				//asmdef_sample
+				t_param.asmdef_sample = new BlueBack.UpmVersionManager.Editor.Object_Setting.Param.AsmdefItem{
+					reference_list = new BlueBack.UpmVersionManager.Editor.Object_Setting.Param.AsmdefReferenceItem[]{
+						new BlueBack.UpmVersionManager.Editor.Object_Setting.Param.AsmdefReferenceItem(){
+							package_name = "BlueBack.Pad",
+							url = t_param.git_url + t_param.git_author + "/Pad",
+						},
+						new BlueBack.UpmVersionManager.Editor.Object_Setting.Param.AsmdefReferenceItem(){
+							package_name = "BlueBack.UnityPlayerLoop",
+							url = t_param.git_url + t_param.git_author + "/UnityPlayerLoop",
+						},
+						new BlueBack.UpmVersionManager.Editor.Object_Setting.Param.AsmdefReferenceItem(){
+							package_name = "Unity.InputSystem",
+							url = "https://docs.unity3d.com/ja/2019.4/Manual/com.unity.inputsystem.html",
+						},
+					},
+					versiondefine_list = new BlueBack.UpmVersionManager.Editor.Object_Setting.Param.AsmdefVersionDefineItem[]{
+					},
 				};
 
 				//changelog

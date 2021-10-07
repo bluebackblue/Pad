@@ -22,7 +22,7 @@ namespace Samples.Pad.InputSystem
 		{
 			//Param
 			BlueBack.Pad.UIS.Param t_param = new BlueBack.Pad.UIS.Param(UnityEngine.InputSystem.Gamepad.current);
-
+			
 			//Update用。
 			this.pad = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.Update,new BlueBack.Pad.Param(),new BlueBack.Pad.UIS.Engine(t_param));
 
