@@ -8,15 +8,20 @@ MIT License
 * https://github.com/bluebackblue/Pad/blob/main/LICENSE
 
 ## 外部依存 / 使用ライセンス等
-Unity.InputSystem
+### ランタイム
+### エディター
+* https://github.com/bluebackblue/Pad
+### サンプル
+* https://github.com/bluebackblue/Pad
 * https://github.com/bluebackblue/UnityPlayerLoop
+* https://docs.unity3d.com/ja/2019.4/Manual/com.unity.inputsystem.html
 
 ## 動作確認
 Unity 2021.1.11f1
 
 ## UPM
 ### 最新
-* https://github.com/bluebackblue/Pad.git?path=unity_Pad/Assets/UPM#0.0.6
+* https://github.com/bluebackblue/Pad.git?path=unity_Pad/Assets/UPM#0.0.7
 ### 開発
 * https://github.com/bluebackblue/Pad.git?path=unity_Pad/Assets/UPM
 

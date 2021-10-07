@@ -48,13 +48,15 @@ namespace Editor
 				//packagejson_discription
 				t_param.packagejson_discription = "パッド操作";
 
-				//■packagejson_keyword
+				//packagejson_keyword
 				t_param.packagejson_keyword = new string[]{
 					"input","pad"
 				};
 
 				//packagejson_dependencies
-				t_param.packagejson_dependencies = new System.Collections.Generic.Dictionary<string,string>();
+				t_param.packagejson_dependencies = new System.Collections.Generic.Dictionary<string,string>(){
+					//{"blueback.xxxxx","https://github.com/xxxxx/xxxxx"},
+				};
 
 				//asmdef_runtime
 				t_param.asmdef_runtime = new BlueBack.UpmVersionManager.Editor.Object_Setting.Param.AsmdefItem{
@@ -117,7 +119,7 @@ namespace Editor
 					/*
 					"## [0.0.0] - 0000-00-00",
 					"### Changes",
-					"- Init",
+					"- xxxxxx",
 					"",
 					*/
 
@@ -151,13 +153,10 @@ namespace Editor
 
 					//依存。
 					(in BlueBack.UpmVersionManager.Editor.Object_Setting.Creator_Argument a_argument) => {
-						return new string[]{
-							"## 外部依存 / 使用ライセンス等",
-							"Unity.InputSystem",
-							"* " + a_argument.param.git_url + a_argument.param.git_author + "/" + "UnityPlayerLoop",
-							//"### サンプルのみ",
-							//"* " + a_argument.param.git_url + a_argument.param.git_author + "/" + "AssetLib",
-						};
+						System.Collections.Generic.List<string> t_list = new System.Collections.Generic.List<string>();
+						t_list.Add("## 外部依存 / 使用ライセンス等");
+						t_list.AddRange(BlueBack.UpmVersionManager.Editor.Object_Setting.Create_RootReadMd_Asmdef_Dependence(a_argument));
+						return t_list.ToArray();
 					},
 
 					//動作確認。
@@ -272,4 +271,5 @@ namespace Editor
 	}
 }
 #endif
+
 
