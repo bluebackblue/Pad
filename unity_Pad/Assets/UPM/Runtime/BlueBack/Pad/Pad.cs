@@ -13,7 +13,7 @@ namespace BlueBack.Pad
 {
 	/** Pad
 	*/
-	public class Pad : System.IDisposable
+	public sealed class Pad : System.IDisposable
 	{
 		/** engine
 		*/
@@ -70,7 +70,7 @@ namespace BlueBack.Pad
 
 		/** constructor
 		*/
-		public Pad(Mode a_mode,Param a_param,Engine_Base a_engine)
+		public Pad(Mode a_mode,in InitParam a_initparam,Engine_Base a_engine)
 		{
 			//PlayerLoopSystem
 			{
@@ -96,6 +96,9 @@ namespace BlueBack.Pad
 
 				//SetPlayerLoop
 				BlueBack.UnityPlayerLoop.UnityPlayerLoop.SetPlayerLoop(t_playerloopsystem);
+
+				//SetDefaultPlayerLoopOnUnityDestroy
+				BlueBack.UnityPlayerLoop.UnityPlayerLoop.SetDefaultPlayerLoopOnUnityDestroy();
 			}
 
 			//engine
@@ -113,38 +116,38 @@ namespace BlueBack.Pad
 				this.analog_rt2.Init();
 
 				//メニュー。
-				this.menu_l.Init(a_param);
-				this.menu_r.Init(a_param);
+				this.menu_l.Init(in a_initparam);
+				this.menu_r.Init(in a_initparam);
 
 				//十字。
-				this.dir_r.Init(a_param);
-				this.dir_d.Init(a_param);
-				this.dir_l.Init(a_param);
-				this.dir_u.Init(a_param);
+				this.dir_r.Init(in a_initparam);
+				this.dir_d.Init(in a_initparam);
+				this.dir_l.Init(in a_initparam);
+				this.dir_u.Init(in a_initparam);
 
 				//ボタン。
-				this.button_r.Init(a_param);
-				this.button_d.Init(a_param);
-				this.button_l.Init(a_param);
-				this.button_u.Init(a_param);
+				this.button_r.Init(in a_initparam);
+				this.button_d.Init(in a_initparam);
+				this.button_l.Init(in a_initparam);
+				this.button_u.Init(in a_initparam);
 
 				//ボタン。スティック。
-				this.button_lsr.Init(a_param);
-				this.button_lsd.Init(a_param);
-				this.button_lsl.Init(a_param);
-				this.button_lsu.Init(a_param);
-				this.button_rsr.Init(a_param);
-				this.button_rsd.Init(a_param);
-				this.button_rsl.Init(a_param);
-				this.button_rsu.Init(a_param);
+				this.button_lsr.Init(in a_initparam);
+				this.button_lsd.Init(in a_initparam);
+				this.button_lsl.Init(in a_initparam);
+				this.button_lsu.Init(in a_initparam);
+				this.button_rsr.Init(in a_initparam);
+				this.button_rsd.Init(in a_initparam);
+				this.button_rsl.Init(in a_initparam);
+				this.button_rsu.Init(in a_initparam);
 
 				//ボタン。トリガー。
-				this.button_lt1.Init(a_param);
-				this.button_lt2.Init(a_param);
-				this.button_lt3.Init(a_param);
-				this.button_rt1.Init(a_param);
-				this.button_rt2.Init(a_param);
-				this.button_rt3.Init(a_param);
+				this.button_lt1.Init(in a_initparam);
+				this.button_lt2.Init(in a_initparam);
+				this.button_lt3.Init(in a_initparam);
+				this.button_rt1.Init(in a_initparam);
+				this.button_rt2.Init(in a_initparam);
+				this.button_rt3.Init(in a_initparam);
 			}
 		}
 

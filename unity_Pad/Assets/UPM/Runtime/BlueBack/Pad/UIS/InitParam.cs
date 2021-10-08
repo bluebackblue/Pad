@@ -14,7 +14,7 @@ namespace BlueBack.Pad.UIS
 	/** Param
 	*/
 	#if(DEF_BLUEBACK_PAD_UIS)
-	public class Param
+	public struct InitParam
 	{
 		/** device
 		*/
@@ -22,7 +22,7 @@ namespace BlueBack.Pad.UIS
 
 		/** constructor
 		*/
-		public Param(UnityEngine.InputSystem.Gamepad a_device)
+		public InitParam(UnityEngine.InputSystem.Gamepad a_device)
 		{
 			this.device = a_device;
 		}

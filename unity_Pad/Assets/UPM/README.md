@@ -20,7 +20,7 @@ Unity 2021.1.11f1
 
 ## UPM
 ### 最新
-* https://github.com/bluebackblue/Pad.git?path=unity_Pad/Assets/UPM#0.0.7
+* https://github.com/bluebackblue/Pad.git?path=unity_Pad/Assets/UPM#0.0.8
 ### 開発
 * https://github.com/bluebackblue/Pad.git?path=unity_Pad/Assets/UPM
 
@@ -50,13 +50,13 @@ private BlueBack.Pad.Pad pad_fixedupdate;
 private void Start()
 {
 	//Param
-	BlueBack.Pad.UIM.Param t_param = new BlueBack.Pad.UIM.Param(BlueBack.Pad.UIM.Param.ParamType.PS_ALL);
+	BlueBack.Pad.UIM.InitParam t_param = new BlueBack.Pad.UIM.InitParam(BlueBack.Pad.UIM.InitParam.ParamType.PS_ALL);
 
 	//Update用。
-	this.pad = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.Update,new BlueBack.Pad.Param(),new BlueBack.Pad.UIM.Engine(t_param));
+	this.pad = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.Update,BlueBack.Pad.InitParam.CreateDefault(),new BlueBack.Pad.UIM.Engine(t_param));
 
 	//FixedUpdate用。
-	this.pad_fixedupdate = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.FixedUpdate,new BlueBack.Pad.Param(),new BlueBack.Pad.UIM.Engine(t_param));
+	this.pad_fixedupdate = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.FixedUpdate,BlueBack.Pad.InitParam.CreateDefault(),new BlueBack.Pad.UIM.Engine(t_param));
 }
 
 /** Update

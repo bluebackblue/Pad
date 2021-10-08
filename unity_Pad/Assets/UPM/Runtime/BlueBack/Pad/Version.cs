@@ -13,7 +13,7 @@ namespace BlueBack.Pad
 {
 	/** Version
 	*/
-	public class Version
+	public static class Version
 	{
 		/** packagename
 		*/
@@ -21,7 +21,7 @@ namespace BlueBack.Pad
 
 		/** packageversion
 		*/
-		public const string packageversion = "0.0.7";
+		public const string packageversion = "0.0.8";
 
 		/** GetPackageVersion
 		*/

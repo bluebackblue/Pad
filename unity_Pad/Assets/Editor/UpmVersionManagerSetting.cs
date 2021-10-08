@@ -22,10 +22,10 @@ namespace Editor
 		static UpmVersionManagerSetting()
 		{
 			//Object_RootUssUxml
-			BlueBack.UpmVersionManager.Editor.Object_RootUssUxml.CreateFile(false);
+			BlueBack.UpmVersionManager.Editor.Object_RootUssUxml.Save(false);
 
-			BlueBack.UpmVersionManager.Editor.Object_Setting.CreateInstance();
-			BlueBack.UpmVersionManager.Editor.Object_Setting.Param t_param = new BlueBack.UpmVersionManager.Editor.Object_Setting.Param();
+			BlueBack.UpmVersionManager.Editor.Object_Setting.s_param = new BlueBack.UpmVersionManager.Editor.Object_Setting.Param();
+			BlueBack.UpmVersionManager.Editor.Object_Setting.Param t_param = BlueBack.UpmVersionManager.Editor.Object_Setting.s_param;
 			{
 				//author_name
 				t_param.author_name = "BlueBack";
@@ -50,7 +50,7 @@ namespace Editor
 
 				//packagejson_keyword
 				t_param.packagejson_keyword = new string[]{
-					"input","pad"
+					"input","pad",
 				};
 
 				//packagejson_dependencies
@@ -131,10 +131,10 @@ namespace Editor
 					//概要。
 					(in BlueBack.UpmVersionManager.Editor.Object_Setting.Creator_Argument a_argument) => {
 						return new string[]{
-							"# " + a_argument.param.author_name + "." + a_argument.param.package_name,
+							"# " + t_param.author_name + "." + t_param.package_name,
 							"パッド操作",
 							"* パッドのボタン取得",
-							"* FixedUpdateでのダウン、アップ、連射の取得"
+							"* FixedUpdateでのダウン、アップ、連射の取得",
 						};
 					},
 
@@ -143,7 +143,7 @@ namespace Editor
 						return new string[]{
 							"## ライセンス",
 							"MIT License",
-							"* " + a_argument.param.git_url + a_argument.param.git_author + "/" + a_argument.param.package_name + "/blob/main/LICENSE",
+							"* " + t_param.git_url + t_param.git_author + "/" + t_param.package_name + "/blob/main/LICENSE",
 						};
 					},
 
@@ -168,9 +168,9 @@ namespace Editor
 						return new string[]{
 							"## UPM",
 							"### 最新",
-							"* " + a_argument.param.git_url + a_argument.param.git_author + "/" + a_argument.param.package_name + ".git?path=" + a_argument.param.git_path + "#" + a_argument.version,
+							"* " + t_param.git_url + t_param.git_author + "/" + t_param.package_name + ".git?path=" + t_param.git_path + "#" + a_argument.version,
 							"### 開発",
-							"* " + a_argument.param.git_url + a_argument.param.git_author + "/" + a_argument.param.package_name + ".git?path=" + a_argument.param.git_path,
+							"* " + t_param.git_url + t_param.git_author + "/" + t_param.package_name + ".git?path=" + t_param.git_path,
 						};
 					},
 
@@ -208,13 +208,13 @@ namespace Editor
 							"private void Start()",
 							"{",
 							"	//Param",
-							"	BlueBack.Pad.UIM.Param t_param = new BlueBack.Pad.UIM.Param(BlueBack.Pad.UIM.Param.ParamType.PS_ALL);",
+							"	BlueBack.Pad.UIM.InitParam t_param = new BlueBack.Pad.UIM.InitParam(BlueBack.Pad.UIM.InitParam.ParamType.PS_ALL);",
 							"",
 							"	//Update用。",
-							"	this.pad = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.Update,new BlueBack.Pad.Param(),new BlueBack.Pad.UIM.Engine(t_param));",
+							"	this.pad = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.Update,BlueBack.Pad.InitParam.CreateDefault(),new BlueBack.Pad.UIM.Engine(t_param));",
 							"",
 							"	//FixedUpdate用。",
-							"	this.pad_fixedupdate = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.FixedUpdate,new BlueBack.Pad.Param(),new BlueBack.Pad.UIM.Engine(t_param));",
+							"	this.pad_fixedupdate = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.FixedUpdate,BlueBack.Pad.InitParam.CreateDefault(),new BlueBack.Pad.UIM.Engine(t_param));",
 							"}",
 							"",
 							"/** Update",
@@ -260,8 +260,6 @@ namespace Editor
 					},
 				};
 			}
-
-			BlueBack.UpmVersionManager.Editor.Object_Setting.GetInstance().Set(t_param);
 		}
 	}
 }

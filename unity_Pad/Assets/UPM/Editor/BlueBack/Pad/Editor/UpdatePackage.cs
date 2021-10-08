@@ -15,7 +15,7 @@ namespace BlueBack.Pad.Editor
 	/** UpdatePackage
 	*/
 	#if(!DEF_USER_BLUEBACK_PAD)
-	public class UpdatePackage
+	public static class UpdatePackage
 	{
 		/** MenuItem_BlueBack_Pad_UpdatePackage
 		*/

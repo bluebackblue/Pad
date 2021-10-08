@@ -13,7 +13,7 @@ namespace BlueBack.Pad
 {
 	/** DebugTool
 	*/
-	public class DebugTool
+	public static class DebugTool
 	{
 		/** s_AssertProc
 		*/

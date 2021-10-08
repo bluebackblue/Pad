@@ -14,15 +14,15 @@ namespace BlueBack.Pad.UIS
 	/** Engine
 	*/
 	#if(DEF_BLUEBACK_PAD_UIS)
-	public class Engine : Engine_Base
+	public sealed class Engine : Engine_Base
 	{
 		/** param
 		*/
-		public Param param;
+		public InitParam param;
 
 		/** constructor
 		*/
-		public Engine(Param a_param)
+		public Engine(in InitParam a_param)
 		{
 			this.param = a_param;
 		}

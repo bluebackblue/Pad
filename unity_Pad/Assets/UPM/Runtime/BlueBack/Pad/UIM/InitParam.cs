@@ -11,9 +11,9 @@
 */
 namespace BlueBack.Pad.UIM
 {
-	/** Param
+	/** InitParam
 	*/
-	public class Param
+	public struct InitParam
 	{
 		/** Param
 		*/
@@ -73,11 +73,9 @@ namespace BlueBack.Pad.UIM
 		public string menu_l;
 		public string menu_r;
 
-		
-
 		/** constructor
 		*/
-		public Param(ParamType a_type)
+		public InitParam(ParamType a_type)
 		{
 			string t_prefix = null;
 

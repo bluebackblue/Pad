@@ -21,13 +21,13 @@ namespace Samples.Pad.InputSystem
 		private void Start()
 		{
 			//Param
-			BlueBack.Pad.UIS.Param t_param = new BlueBack.Pad.UIS.Param(UnityEngine.InputSystem.Gamepad.current);
+			BlueBack.Pad.UIS.InitParam t_param = new BlueBack.Pad.UIS.InitParam(UnityEngine.InputSystem.Gamepad.current);
 			
 			//Update用。
-			this.pad = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.Update,new BlueBack.Pad.Param(),new BlueBack.Pad.UIS.Engine(t_param));
+			this.pad = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.Update,BlueBack.Pad.InitParam.CreateDefault(),new BlueBack.Pad.UIS.Engine(t_param));
 
 			//FixedUpdate用。
-			this.pad_fixedupdate = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.FixedUpdate,new BlueBack.Pad.Param(),new BlueBack.Pad.UIS.Engine(t_param));
+			this.pad_fixedupdate = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.FixedUpdate,BlueBack.Pad.InitParam.CreateDefault(),new BlueBack.Pad.UIS.Engine(t_param));
 		}
 
 		/** OnDestroy

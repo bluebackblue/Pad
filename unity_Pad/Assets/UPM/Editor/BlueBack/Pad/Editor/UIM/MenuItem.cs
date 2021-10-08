@@ -9,11 +9,12 @@
 
 /** BlueBack.Pad.UIM
 */
-namespace BlueBack.Pad.UIM
+#if(UNITY_EDITOR)
+namespace BlueBack.Pad.Editor.UIM
 {
 	/** MenuItem
 	*/
-	public class MenuItem
+	public static class MenuItem
 	{
 		/** Item
 		*/
@@ -892,4 +893,5 @@ namespace BlueBack.Pad.UIM
 		}
 	}
 }
+#endif
 

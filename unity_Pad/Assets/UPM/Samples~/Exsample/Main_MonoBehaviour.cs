@@ -52,25 +52,25 @@ namespace Samples.Pad.Exsample
 		*/
 		private void Start()
 		{
-			BlueBack.Pad.UIM.Param t_param = new BlueBack.Pad.UIM.Param(BlueBack.Pad.UIM.Param.ParamType.PS_ALL);
+			BlueBack.Pad.UIM.InitParam t_param = new BlueBack.Pad.UIM.InitParam(BlueBack.Pad.UIM.InitParam.ParamType.PS_ALL);
 
 			//pad_update
 			#if(PAD_UPDATE)
-			this.pad_update = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.Update,new BlueBack.Pad.Param(),new BlueBack.Pad.UIM.Engine(t_param));
+			this.pad_update = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.Update,BlueBack.Pad.InitParam.CreateDefault(),new BlueBack.Pad.UIM.Engine(t_param));
 			this.text_update = UnityEngine.GameObject.Find("Text_Update").GetComponent<UnityEngine.UI.Text>();
 			this.value_update = 0;
 			#endif
 
 			//pad_fixedupdate
 			#if(PAD_FIXEDUPDATE)
-			this.pad_fixedupdate = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.FixedUpdate,new BlueBack.Pad.Param(),new BlueBack.Pad.UIM.Engine(t_param));
+			this.pad_fixedupdate = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.FixedUpdate,BlueBack.Pad.InitParam.CreateDefault(),new BlueBack.Pad.UIM.Engine(t_param));
 			this.text_fixedupdate = UnityEngine.GameObject.Find("Text_FixedUpdate").GetComponent<UnityEngine.UI.Text>();
 			this.value_fixedupdate = 0;
 			#endif
 
 			//マニュアル呼び出し。
 			#if(PAD_MANUAL)
-			this.pad_manual = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.Manual,new BlueBack.Pad.Param(),new BlueBack.Pad.UIM.Engine(t_param));
+			this.pad_manual = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.Manual,BlueBack.Pad.InitParam.CreateDefault(),new BlueBack.Pad.UIM.Engine(t_param));
 			this.text_manual = UnityEngine.GameObject.Find("Text_Manual").GetComponent<UnityEngine.UI.Text>();
 			this.value_manual = 0;
 			#endif
