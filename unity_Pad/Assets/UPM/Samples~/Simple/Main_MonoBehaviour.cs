@@ -43,8 +43,6 @@ namespace Samples.Pad.Simple
 				this.pad_fixedupdate.Dispose();
 				this.pad_fixedupdate = null;
 			}
-
-			BlueBack.UnityPlayerLoop.UnityPlayerLoop.SetPlayerLoop(BlueBack.UnityPlayerLoop.UnityPlayerLoop.GetDefaultPlayerLoop());
 		}
 
 		/** Update

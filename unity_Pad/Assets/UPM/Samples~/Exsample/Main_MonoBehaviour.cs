@@ -103,8 +103,6 @@ namespace Samples.Pad.Exsample
 				this.pad_manual = null;
 			}
 			#endif
-
-			BlueBack.UnityPlayerLoop.UnityPlayerLoop.SetPlayerLoop(BlueBack.UnityPlayerLoop.UnityPlayerLoop.GetDefaultPlayerLoop());
 		}
 
 		/** Update
