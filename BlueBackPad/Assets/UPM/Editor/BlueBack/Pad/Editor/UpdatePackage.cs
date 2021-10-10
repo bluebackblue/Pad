@@ -28,9 +28,9 @@ namespace BlueBack.Pad.Editor
 				DebugTool.EditorLogError("GetLastReleaseNameFromGitHub : connect error");
 				#endif
 			}else if(t_version.Length <= 0){
-				UnityEditor.PackageManager.Client.Add("https://github.com/bluebackblue/Pad.git?path=unity_Pad/Assets/UPM");
+				UnityEditor.PackageManager.Client.Add("https://github.com/bluebackblue/Pad.git?path=BlueBackPad/Assets/UPM");
 			}else{
-				UnityEditor.PackageManager.Client.Add("https://github.com/bluebackblue/Pad.git?path=unity_Pad/Assets/UPM#" + t_version);
+				UnityEditor.PackageManager.Client.Add("https://github.com/bluebackblue/Pad.git?path=BlueBackPad/Assets/UPM#" + t_version);
 			}
 		}
 
