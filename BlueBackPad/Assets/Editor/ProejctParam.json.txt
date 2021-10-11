@@ -8,10 +8,10 @@
     "discription_detal":[
         "パッド操作",
         "* パッドのボタン取得",
-        "* FixedUpdateでのダウン、アップ、連射の取得",
+        "* FixedUpdateでのダウン、アップ、連射の取得"
     ],
     "keyword":[
-        "input","pad",
+        "input","pad"
     ],
     "changelog":[
         "# Changelog",
@@ -19,25 +19,41 @@
         "## [0.0.0] - 2021-06-06",
         "### Changes",
         "- Init",
-        "",
+        ""
     ],
     "root_readmemd_path":"../../README.md",
     "need_unity_version":"2020.1",
     "asmdef_runtime":{
         "define_list":[
             {
-                "package_pathname","com.unity.inputsystem",
-                "define","DEF_BLUEBACK_PAD_UIS",
-                "expression","",
-            },
+                "use":"use",
+                "package_pathname":"com.unity.inputsystem",
+                "define":"DEF_BLUEBACK_PAD_UIS",
+                "expression":""
+            }
         ],
         "reference_list":[
+            {
+                "use":"use",
+                "package_fullname":"BlueBack.UnityPlayerLoop",
+                "url":"https://github.com/bluebackblue/UpmUnityPlayerLoop"
+            },
+            {
+                "use":"use",
+                "package_fullname":"Unity.InputSystem",
+                "url":"https://docs.unity3d.com/ja/2019.4/Manual/com.unity.inputsystem.html"
+            }
         ]
     },
     "asmdef_editor":{
         "define_list":[
         ],
         "reference_list":[
+            {
+                "use":"use",
+                "package_fullname":"BlueBack.Pad",
+                "url":"https://github.com/bluebackblue/UpmPad"
+            }
         ]
     },
     "asmdef_sample":{
@@ -45,17 +61,15 @@
         ],
         "reference_list":[
             {
+                "use":"use",
                 "package_fullname":"BlueBack.Pad",
-                "url":"https://github.com/bluebackblue/UpmPad",
+                "url":"https://github.com/bluebackblue/UpmPad"
             },
             {
-                "package_fullname":"BlueBack.Pad.Editor",
-                "url":"https://github.com/bluebackblue/UpmPad",
-            },
-            {
+                "use":"use",
                 "package_fullname":"Unity.InputSystem",
-                "url":"https://docs.unity3d.com/ja/2019.4/Manual/com.unity.inputsystem.html",
-            },
+                "url":"https://docs.unity3d.com/ja/2019.4/Manual/com.unity.inputsystem.html"
+            }
         ]
-    },
+    }
 }

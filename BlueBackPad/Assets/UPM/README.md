@@ -10,6 +10,7 @@ MIT License
 ## 依存 / 使用ライセンス等
 ### ランタイム
 ### エディター
+* https://github.com/bluebackblue/UpmPad
 ### サンプル
 * https://github.com/bluebackblue/UpmPad
 * https://docs.unity3d.com/ja/2019.4/Manual/com.unity.inputsystem.html
@@ -19,7 +20,7 @@ Unity 2021.1.11f1
 
 ## UPM
 ### 最新
-* https://github.com/bluebackblue/UpmPad.git?path=BlueBackPad/Assets/UPM#0.0.10
+* https://github.com/bluebackblue/UpmPad.git?path=BlueBackPad/Assets/UPM#0.0.11
 ### 開発
 * https://github.com/bluebackblue/UpmPad.git?path=BlueBackPad/Assets/UPM
 
@@ -33,4 +34,5 @@ Unity 2021.1.11f1
 Gitクライアントがインストールされている必要がある。
 * https://docs.unity3d.com/ja/current/Manual/upm-git.html
 * https://git-scm.com/
+
 
