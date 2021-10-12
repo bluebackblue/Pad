@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "blueback.assetlib": "https://github.com/bluebackblue/AssetLib.git?path=BlueBackAssetLib/Assets/UPM",
+    "blueback.assetlib": "https://github.com/bluebackblue/UpmAssetLib.git?path=BlueBackAssetLib/Assets/UPM",
     "blueback.code": "https://github.com/bluebackblue/UpmCode.git?path=BlueBackCode/Assets/UPM",
     "blueback.jsonitem": "https://github.com/bluebackblue/UpmJsonItem.git?path=BlueBackJsonItem/Assets/UPM",
     "blueback.unityplayerloop": "https://github.com/bluebackblue/UpmUnityPlayerLoop.git?path=BlueBackUnityPlayerLoop/Assets/UPM",
