@@ -15,11 +15,13 @@ namespace BlueBack.Pad
 	*/
 	public struct PlayerLoopType
 	{
-		/** 更新。
+		/** Status
 		*/
-		public struct Update
-		{
-		}
+		public struct Status{}
+
+		/** Device
+		*/
+		public struct Device{}
 	}
 }
 

@@ -18,7 +18,7 @@ namespace BlueBack.Pad.Editor.UIM
 	{
 		/** Item
 		*/
-		public class Item
+		public sealed class Item
 		{
 			/** Type
 			*/
