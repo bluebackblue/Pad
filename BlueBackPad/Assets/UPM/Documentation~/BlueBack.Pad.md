@@ -16,11 +16,11 @@ MIT License
 * https://docs.unity3d.com/ja/2019.4/Manual/com.unity.inputsystem.html
 
 ## 動作確認
-Unity 2021.1.11f1
+Unity 2021.2.0b9
 
 ## UPM
 ### 最新
-* https://github.com/bluebackblue/UpmPad.git?path=BlueBackPad/Assets/UPM#0.0.12
+* https://github.com/bluebackblue/UpmPad.git?path=BlueBackPad/Assets/UPM#0.0.13
 ### 開発
 * https://github.com/bluebackblue/UpmPad.git?path=BlueBackPad/Assets/UPM
 

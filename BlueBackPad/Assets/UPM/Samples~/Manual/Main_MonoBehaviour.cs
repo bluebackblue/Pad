@@ -5,9 +5,9 @@
 #define PAD_MANUAL
 
 
-/** Samples.Pad.Exsample
+/** Samples.Pad.Manual
 */
-namespace Samples.Pad.Exsample
+namespace Samples.Pad.Manual
 {
 	/** Main_MonoBehaviour
 	*/

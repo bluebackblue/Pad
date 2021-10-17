@@ -1,8 +1,8 @@
 
 
-/** Samples.Pad.Simple
+/** Samples.Pad.InputManager
 */
-namespace Samples.Pad.Simple
+namespace Samples.Pad.InputManager
 {
 	/** Main_MonoBehaviour
 	*/
