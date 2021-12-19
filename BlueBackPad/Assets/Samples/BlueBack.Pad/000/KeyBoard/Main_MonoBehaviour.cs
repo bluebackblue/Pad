@@ -1,8 +1,8 @@
 
 
-/** Samples.Pad.InputManager
+/** Samples.Pad.KeyBoard
 */
-namespace Samples.Pad.InputManager
+namespace Samples.Pad.KeyBoard
 {
 	/** Main_MonoBehaviour
 	*/
@@ -21,13 +21,13 @@ namespace Samples.Pad.InputManager
 		private void Start()
 		{
 			//Param
-			BlueBack.Pad.UIM.InitParam t_param = BlueBack.Pad.UIM.InitParam.CreateDefault(BlueBack.Pad.UIM.InitParam.ParamType.X_ALL);
+			BlueBack.Pad.KBD.InitParam t_param = BlueBack.Pad.KBD.InitParam.CreateDefault();
 
 			//Update用。
-			this.pad = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.Update,BlueBack.Pad.InitParam.CreateDefault(),new BlueBack.Pad.UIM.Engine(t_param));
+			this.pad = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.Update,BlueBack.Pad.InitParam.CreateDefault(),new BlueBack.Pad.KBD.Engine(t_param));
 
 			//FixedUpdate用。
-			this.pad_fixedupdate = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.FixedUpdate,BlueBack.Pad.InitParam.CreateDefault(),new BlueBack.Pad.UIM.Engine(t_param));
+			this.pad_fixedupdate = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.FixedUpdate,BlueBack.Pad.InitParam.CreateDefault(),new BlueBack.Pad.KBD.Engine(t_param));
 		}
 
 		/** OnDestroy

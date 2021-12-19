@@ -21,7 +21,7 @@ namespace Samples.Pad.InputSystem
 		private void Start()
 		{
 			//Param
-			BlueBack.Pad.UIS.InitParam t_param = new BlueBack.Pad.UIS.InitParam(UnityEngine.InputSystem.Gamepad.current);
+			BlueBack.Pad.UIS.InitParam t_param = BlueBack.Pad.UIS.InitParam.CreateDefault();
 			
 			//Update用。
 			this.pad = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.Update,BlueBack.Pad.InitParam.CreateDefault(),new BlueBack.Pad.UIS.Engine(t_param));

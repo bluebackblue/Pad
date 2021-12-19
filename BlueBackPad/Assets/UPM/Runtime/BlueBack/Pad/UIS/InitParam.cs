@@ -20,11 +20,13 @@ namespace BlueBack.Pad.UIS
 		*/
 		public UnityEngine.InputSystem.Gamepad device;
 
-		/** constructor
+		/** CreateDefault
 		*/
-		public InitParam(UnityEngine.InputSystem.Gamepad a_device)
+		public static InitParam CreateDefault()
 		{
-			this.device = a_device;
+			return new InitParam(){
+				device = UnityEngine.InputSystem.Gamepad.current,
+			};
 		}
 	}
 	#endif
