@@ -13,6 +13,7 @@ namespace BlueBack.Pad.UISKBD
 {
 	/** Engine
 	*/
+	#if(ENABLE_INPUT_SYSTEM)
 	public sealed class Engine : Engine_Base
 	{
 		/** param
@@ -196,5 +197,6 @@ namespace BlueBack.Pad.UISKBD
 			return this.param.menu_r.isPressed;
 		}
 	}
+	#endif
 }
 

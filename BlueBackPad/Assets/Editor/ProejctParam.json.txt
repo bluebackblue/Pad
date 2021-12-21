@@ -25,12 +25,6 @@
     "need_unity_version":"2020.1",
     "asmdef_runtime":{
         "define_list":[
-            {
-                "use":"use",
-                "package_pathname":"com.unity.inputsystem",
-                "define":"DEF_BLUEBACK_PAD_UIS",
-                "expression":""
-            }
         ],
         "reference_list":[
             {

@@ -13,7 +13,7 @@ namespace BlueBack.Pad.UIS
 {
 	/** Param
 	*/
-	#if(DEF_BLUEBACK_PAD_UIS)
+	#if(ENABLE_INPUT_SYSTEM)
 	public struct InitParam
 	{
 		/** device

@@ -13,7 +13,7 @@ namespace BlueBack.Pad.UIS
 {
 	/** Engine
 	*/
-	#if(DEF_BLUEBACK_PAD_UIS)
+	#if(ENABLE_INPUT_SYSTEM)
 	public sealed class Engine : Engine_Base
 	{
 		/** param
