@@ -7,9 +7,9 @@
 */
 
 
-/** BlueBack.Pad.KBD
+/** BlueBack.Pad.UIMKBD
 */
-namespace BlueBack.Pad.KBD
+namespace BlueBack.Pad.UIMKBD
 {
 	/** Engine
 	*/
