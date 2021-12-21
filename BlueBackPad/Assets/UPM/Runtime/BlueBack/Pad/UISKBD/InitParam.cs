@@ -13,6 +13,7 @@ namespace BlueBack.Pad.UISKBD
 {
 	/** InitParam
 	*/
+	#if(ENABLE_INPUT_SYSTEM)
 	public struct InitParam
 	{
 		/** dir
@@ -90,5 +91,6 @@ namespace BlueBack.Pad.UISKBD
 			};
 		}
 	}
+	#endif
 }
 
