@@ -17,13 +17,36 @@ namespace BlueBack.Pad.UIM
 	{
 		/** param
 		*/
-		public InitParam param;
+		public Param param;
 
 		/** constructor
 		*/
-		public Engine(in InitParam a_param)
+		public Engine(in InitParam a_initparam)
 		{
-			this.param = a_param;
+			this.param.stick_lx		= a_initparam.stick_lx;
+			this.param.stick_ly		= a_initparam.stick_ly;
+			this.param.stick_rx		= a_initparam.stick_rx;
+			this.param.stick_ry		= a_initparam.stick_ry;
+
+			this.param.dir_x		= a_initparam.dir_x;
+			this.param.dir_y		= a_initparam.dir_y;
+
+			this.param.button_r		= a_initparam.button_r;
+			this.param.button_d		= a_initparam.button_d;
+			this.param.button_l		= a_initparam.button_l;
+			this.param.button_u		= a_initparam.button_u;
+
+			this.param.trigger_l1	= a_initparam.trigger_l1;
+			this.param.trigger_l2	= a_initparam.trigger_l2;
+			this.param.trigger_l3	= a_initparam.trigger_l3;
+			this.param.trigger_r1	= a_initparam.trigger_r1;
+			this.param.trigger_r2	= a_initparam.trigger_r2;
+			this.param.trigger_r3	= a_initparam.trigger_r3;
+			this.param.trigger_add	= a_initparam.trigger_add;
+			this.param.trigger_mul	= a_initparam.trigger_mul;
+
+			this.param.menu_l		= a_initparam.menu_l;
+			this.param.menu_r		= a_initparam.menu_r;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]作成。
@@ -35,6 +58,12 @@ namespace BlueBack.Pad.UIM
 		/** [BlueBack.Pad.Engine_Base]削除。
 		*/
 		public void Delete()
+		{
+		}
+
+		/** [BlueBack.Pad.Engine_Base]更新。
+		*/
+		public void PreUpdate()
 		{
 		}
 

@@ -18,13 +18,43 @@ namespace BlueBack.Pad.UISKBD
 	{
 		/** param
 		*/
-		public InitParam param;
+		public Param param;
 
 		/** constructor
 		*/
-		public Engine(in InitParam a_param)
+		public Engine(in InitParam a_initparam)
 		{
-			this.param = a_param;
+			this.param.device		= a_initparam.device;
+			this.param.enable		= false;
+
+			this.param.dir_l		= a_initparam.dir_l;
+			this.param.dir_r		= a_initparam.dir_r;
+			this.param.dir_u		= a_initparam.dir_u;
+			this.param.dir_d		= a_initparam.dir_d;
+
+			this.param.button_l		= a_initparam.button_l;
+			this.param.button_r		= a_initparam.button_r;
+			this.param.button_u		= a_initparam.button_u;
+			this.param.button_d		= a_initparam.button_d;
+
+			this.param.menu_l		= a_initparam.menu_l;
+			this.param.menu_r		= a_initparam.menu_r;
+
+			this.param.stick_l_xm	= a_initparam.stick_l_xm;
+			this.param.stick_l_xp	= a_initparam.stick_l_xp;
+			this.param.stick_l_ym	= a_initparam.stick_l_ym;
+			this.param.stick_l_yp	= a_initparam.stick_l_yp;
+			this.param.stick_r_xm	= a_initparam.stick_r_xm;
+			this.param.stick_r_xp	= a_initparam.stick_r_xp;
+			this.param.stick_r_ym	= a_initparam.stick_r_ym;
+			this.param.stick_r_yp	= a_initparam.stick_r_yp;
+
+			this.param.trigger_l_1	= a_initparam.trigger_l_1;
+			this.param.trigger_l_2	= a_initparam.trigger_l_2;
+			this.param.trigger_l_3	= a_initparam.trigger_l_3;
+			this.param.trigger_r_1	= a_initparam.trigger_r_1;
+			this.param.trigger_r_2	= a_initparam.trigger_r_2;
+			this.param.trigger_r_3	= a_initparam.trigger_r_3;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]作成。
@@ -39,24 +69,40 @@ namespace BlueBack.Pad.UISKBD
 		{
 		}
 
+		/** [BlueBack.Pad.Engine_Base]更新。
+		*/
+		public void PreUpdate()
+		{
+			if(this.param.device != null){
+				if(this.param.device.added == true){
+					this.param.enable = true;
+				}else{
+					this.param.enable = false;
+				}
+			}else{
+				this.param.enable = false;
+			}
+		}
+
 		/** [BlueBack.Pad.Engine_Base]スティック。左。取得。
 		*/
 		public UnityEngine.Vector2 GetStickL()
 		{
 			float t_x = 0.0f;
-
-			if(this.param.stick_l_xm.isPressed == true){
-				t_x = -1.0f;
-			}else if(this.param.stick_l_xp.isPressed == true){
-				t_x = 1.0f;
-			}
-
 			float t_y = 0.0f;
 
-			if(this.param.stick_l_ym.isPressed == true){
-				t_y = -1.0f;
-			}else if(this.param.stick_l_yp.isPressed == true){
-				t_y = 1.0f;
+			if(this.param.enable == true){
+				if(this.param.device[this.param.stick_l_xm].isPressed == true){
+					t_x = -1.0f;
+				}else if(this.param.device[this.param.stick_l_xp].isPressed == true){
+					t_x = 1.0f;
+				}
+
+				if(this.param.device[this.param.stick_l_ym].isPressed == true){
+					t_y = -1.0f;
+				}else if(this.param.device[this.param.stick_l_yp].isPressed == true){
+					t_y = 1.0f;
+				}
 			}
 
 			return new UnityEngine.Vector2(t_x,t_y);
@@ -67,19 +113,20 @@ namespace BlueBack.Pad.UISKBD
 		public UnityEngine.Vector2 GetStickR()
 		{
 			float t_x = 0.0f;
-
-			if(this.param.stick_r_xm.isPressed == true){
-				t_x = -1.0f;
-			}else if(this.param.stick_r_xp.isPressed == true){
-				t_x = 1.0f;
-			}
-
 			float t_y = 0.0f;
 
-			if(this.param.stick_r_ym.isPressed == true){
-				t_y = -1.0f;
-			}else if(this.param.stick_r_yp.isPressed == true){
-				t_y = 1.0f;
+			if(this.param.enable == true){
+				if(this.param.device[this.param.stick_r_xm].isPressed == true){
+					t_x = -1.0f;
+				}else if(this.param.device[this.param.stick_r_xp].isPressed == true){
+					t_x = 1.0f;
+				}
+
+				if(this.param.device[this.param.stick_r_ym].isPressed == true){
+					t_y = -1.0f;
+				}else if(this.param.device[this.param.stick_r_yp].isPressed == true){
+					t_y = 1.0f;
+				}
 			}
 
 			return new UnityEngine.Vector2(t_x,t_y);
@@ -89,112 +136,160 @@ namespace BlueBack.Pad.UISKBD
 		*/
 		public bool GetDirR()
 		{
-			return this.param.dir_r.isPressed;
+			if(this.param.enable == true){
+				return this.param.device[this.param.dir_r].isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]ボタン左側。下。取得。
 		*/
 		public bool GetDirD()
 		{
-			return this.param.dir_d.isPressed;
+			if(this.param.enable == true){
+				return this.param.device[this.param.dir_d].isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]ボタン左側。左。取得。
 		*/
 		public bool GetDirL()
 		{
-			return this.param.dir_l.isPressed;
+			if(this.param.enable == true){
+				return this.param.device[this.param.dir_l].isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]ボタン左側。上。取得。
 		*/
 		public bool GetDirU()
 		{
-			return this.param.dir_u.isPressed;
+			if(this.param.enable == true){
+				return this.param.device[this.param.dir_u].isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]ボタン右側。右。取得。
 		*/
 		public bool GetButtonR()
 		{
-			return this.param.button_r.isPressed;
+			if(this.param.enable == true){
+				return this.param.device[this.param.button_r].isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]ボタン右側。下。取得。
 		*/
 		public bool GetButtonD()
 		{
-			return this.param.button_d.isPressed;
+			if(this.param.enable == true){
+				return this.param.device[this.param.button_d].isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]ボタン右側。左。取得。
 		*/
 		public bool GetButtonL()
 		{
-			return this.param.button_l.isPressed;
+			if(this.param.enable == true){
+				return this.param.device[this.param.button_l].isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]ボタン右側。上。取得。
 		*/
 		public bool GetButtonU()
 		{
-			return this.param.button_u.isPressed;
+			if(this.param.enable == true){
+				return this.param.device[this.param.button_u].isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]トリガー。左１。取得。
 		*/
 		public bool GetTriggerL1()
 		{
-			return this.param.trigger_l_1.isPressed;
+			if(this.param.enable == true){
+				return this.param.device[this.param.trigger_l_1].isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]トリガー。左２。取得。
 		*/
 		public float GetTriggerL2()
 		{
-			return this.param.trigger_l_2.isPressed ? 1.0f : 0.0f;
+			if(this.param.enable == true){
+				return this.param.device[this.param.trigger_l_2].isPressed ? 1.0f : 0.0f;
+			}
+			return 0.0f;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]トリガー。左３。取得。
 		*/
 		public bool GetTriggerL3()
 		{
-			return this.param.trigger_l_3.isPressed;
+			if(this.param.enable == true){
+				return this.param.device[this.param.trigger_l_3].isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]トリガー。右１。取得。
 		*/
 		public bool GetTriggerR1()
 		{
-			return this.param.trigger_r_1.isPressed;
+			if(this.param.enable == true){
+				return this.param.device[this.param.trigger_r_1].isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]トリガー。右２。取得。
 		*/
 		public float GetTriggerR2()
 		{
-			return this.param.trigger_r_2.isPressed ? 1.0f : 0.0f;
+			if(this.param.enable == true){
+				return this.param.device[this.param.trigger_r_2].isPressed ? 1.0f : 0.0f;
+			}
+			return 0.0f;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]トリガー。右３。取得。
 		*/
 		public bool GetTriggerR3()
 		{
-			return this.param.trigger_r_3.isPressed;
+			if(this.param.enable == true){
+				return this.param.device[this.param.trigger_r_3].isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]メニュー。左。取得。
 		*/
 		public bool GetMenuL()
 		{
-			return this.param.menu_l.isPressed;
+			if(this.param.enable == true){
+				return this.param.device[this.param.menu_l].isPressed;
+			}
+			return false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]メニュー。右。取得。
 		*/
 		public bool GetMenuR()
 		{
-			return this.param.menu_r.isPressed;
+			if(this.param.enable == true){
+				return this.param.device[this.param.menu_r].isPressed;
+			}
+			return false;
 		}
 	}
 	#endif

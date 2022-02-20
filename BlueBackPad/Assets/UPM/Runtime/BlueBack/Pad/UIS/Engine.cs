@@ -18,13 +18,14 @@ namespace BlueBack.Pad.UIS
 	{
 		/** param
 		*/
-		public InitParam param;
+		public Param param;
 
 		/** constructor
 		*/
-		public Engine(in InitParam a_param)
+		public Engine(in InitParam a_initparam)
 		{
-			this.param = a_param;
+			this.param.device		= a_initparam.device;
+			this.param.enable		= false;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]作成。
@@ -39,11 +40,26 @@ namespace BlueBack.Pad.UIS
 		{
 		}
 
+		/** [BlueBack.Pad.Engine_Base]更新。
+		*/
+		public void PreUpdate()
+		{
+			if(this.param.device != null){
+				if(this.param.device.added == true){
+					this.param.enable = true;
+				}else{
+					this.param.enable = false;
+				}
+			}else{
+				this.param.enable = false;
+			}
+		}
+
 		/** [BlueBack.Pad.Engine_Base]スティック。左。取得。
 		*/
 		public UnityEngine.Vector2 GetStickL()
 		{
-			if(this.param.device != null){
+			if(this.param.enable == true){
 				return new UnityEngine.Vector2(this.param.device.leftStick.x.ReadValue(),this.param.device.leftStick.y.ReadValue());
 			}
 			return new UnityEngine.Vector2(0.0f,0.0f);
@@ -53,7 +69,7 @@ namespace BlueBack.Pad.UIS
 		*/
 		public UnityEngine.Vector2 GetStickR()
 		{
-			if(this.param.device != null){
+			if(this.param.enable == true){
 				return new UnityEngine.Vector2(this.param.device.rightStick.x.ReadValue(),this.param.device.rightStick.y.ReadValue());
 			}
 			return new UnityEngine.Vector2(0.0f,0.0f);
@@ -63,7 +79,7 @@ namespace BlueBack.Pad.UIS
 		*/
 		public bool GetDirR()
 		{
-			if(this.param.device != null){
+			if(this.param.enable == true){
 				return this.param.device.dpad.right.isPressed;
 			}
 			return false;
@@ -73,7 +89,7 @@ namespace BlueBack.Pad.UIS
 		*/
 		public bool GetDirD()
 		{
-			if(this.param.device != null){
+			if(this.param.enable == true){
 				return this.param.device.dpad.down.isPressed;
 			}
 			return false;
@@ -83,7 +99,7 @@ namespace BlueBack.Pad.UIS
 		*/
 		public bool GetDirL()
 		{
-			if(this.param.device != null){
+			if(this.param.enable == true){
 				return this.param.device.dpad.left.isPressed;
 			}
 			return false;
@@ -93,7 +109,7 @@ namespace BlueBack.Pad.UIS
 		*/
 		public bool GetDirU()
 		{
-			if(this.param.device != null){
+			if(this.param.enable == true){
 				return this.param.device.dpad.up.isPressed;
 			}
 			return false;
@@ -103,7 +119,7 @@ namespace BlueBack.Pad.UIS
 		*/
 		public bool GetButtonR()
 		{
-			if(this.param.device != null){
+			if(this.param.enable == true){
 				return this.param.device.buttonEast.isPressed;
 			}
 			return false;
@@ -113,7 +129,7 @@ namespace BlueBack.Pad.UIS
 		*/
 		public bool GetButtonD()
 		{
-			if(this.param.device != null){
+			if(this.param.enable == true){
 				return this.param.device.buttonSouth.isPressed;
 			}
 			return false;
@@ -123,7 +139,7 @@ namespace BlueBack.Pad.UIS
 		*/
 		public bool GetButtonL()
 		{
-			if(this.param.device != null){
+			if(this.param.enable == true){
 				return this.param.device.buttonWest.isPressed;
 			}
 			return false;
@@ -133,7 +149,7 @@ namespace BlueBack.Pad.UIS
 		*/
 		public bool GetButtonU()
 		{
-			if(this.param.device != null){
+			if(this.param.enable == true){
 				return this.param.device.buttonNorth.isPressed;
 			}
 			return false;
@@ -143,7 +159,7 @@ namespace BlueBack.Pad.UIS
 		*/
 		public bool GetTriggerL1()
 		{
-			if(this.param.device != null){
+			if(this.param.enable == true){
 				return this.param.device.leftShoulder.isPressed;
 			}
 			return false;
@@ -153,7 +169,7 @@ namespace BlueBack.Pad.UIS
 		*/
 		public float GetTriggerL2()
 		{
-			if(this.param.device != null){
+			if(this.param.enable == true){
 				return this.param.device.leftTrigger.ReadValue();
 			}
 			return 0.0f;
@@ -163,7 +179,7 @@ namespace BlueBack.Pad.UIS
 		*/
 		public bool GetTriggerL3()
 		{
-			if(this.param.device != null){
+			if(this.param.enable == true){
 				return this.param.device.leftStickButton.isPressed;
 			}
 			return false;
@@ -173,7 +189,7 @@ namespace BlueBack.Pad.UIS
 		*/
 		public bool GetTriggerR1()
 		{
-			if(this.param.device != null){
+			if(this.param.enable == true){
 				return this.param.device.rightShoulder.isPressed;
 			}
 			return false;
@@ -183,7 +199,7 @@ namespace BlueBack.Pad.UIS
 		*/
 		public float GetTriggerR2()
 		{
-			if(this.param.device != null){
+			if(this.param.enable == true){
 				return this.param.device.rightTrigger.ReadValue();
 			}
 			return 0.0f;
@@ -193,7 +209,7 @@ namespace BlueBack.Pad.UIS
 		*/
 		public bool GetTriggerR3()
 		{
-			if(this.param.device != null){
+			if(this.param.enable == true){
 				return this.param.device.rightStickButton.isPressed;
 			}
 			return false;
@@ -203,7 +219,7 @@ namespace BlueBack.Pad.UIS
 		*/
 		public bool GetMenuL()
 		{
-			if(this.param.device != null){
+			if(this.param.enable == true){
 				return this.param.device.selectButton.isPressed;
 			}
 			return false;
@@ -213,7 +229,7 @@ namespace BlueBack.Pad.UIS
 		*/
 		public bool GetMenuR()
 		{
-			if(this.param.device != null){
+			if(this.param.enable == true){
 				return this.param.device.startButton.isPressed;
 			}
 			return false;

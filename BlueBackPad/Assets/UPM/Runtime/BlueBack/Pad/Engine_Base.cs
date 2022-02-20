@@ -23,6 +23,10 @@ namespace BlueBack.Pad
 		*/
 		void Delete();
 
+		/** [BlueBack.Pad.Engine_Base]更新。
+		*/
+		void PreUpdate();
+
 		/** [BlueBack.Pad.Engine_Base]スティック。左。取得。
 		*/
 		UnityEngine.Vector2 GetStickL();

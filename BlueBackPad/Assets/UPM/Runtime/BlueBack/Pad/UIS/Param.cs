@@ -11,23 +11,18 @@
 */
 namespace BlueBack.Pad.UIS
 {
-	/** InitParam
+	/** Param
 	*/
 	#if(ENABLE_INPUT_SYSTEM)
-	public struct InitParam
+	public struct Param
 	{
 		/** device
 		*/
 		public UnityEngine.InputSystem.Gamepad device;
 
-		/** CreateDefault
+		/** enable
 		*/
-		public static InitParam CreateDefault()
-		{
-			return new InitParam(){
-				device = UnityEngine.InputSystem.Gamepad.current,
-			};
-		}
+		public bool enable;
 	}
 	#endif
 }

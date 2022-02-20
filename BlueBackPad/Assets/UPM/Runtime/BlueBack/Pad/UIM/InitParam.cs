@@ -15,29 +15,6 @@ namespace BlueBack.Pad.UIM
 	*/
 	public struct InitParam
 	{
-		/** Param
-		*/
-		public enum ParamType
-		{
-			/** PSコントローラ。全コントローラ。
-			*/
-			PS_ALL,
-			PS_1,
-			PS_2,
-			
-			/** Xコントローラ。全コントローラ。
-			*/
-			X_ALL,
-			X_1,
-			X_2,
-
-			/** Aコントローラ。全コントローラ。
-			*/
-			A_ALL,
-			A_1,
-			A_2,
-		}
-
 		/** アナログスティック。
 		*/
 		public string stick_lx;
@@ -75,44 +52,44 @@ namespace BlueBack.Pad.UIM
 
 		/** CreateDefault
 		*/
-		public static InitParam CreateDefault(ParamType a_type)
+		public static InitParam CreateDefault(InitParamType a_type)
 		{
 			string t_prefix = null;
 
 			switch(a_type){
-			case ParamType.PS_ALL:
+			case InitParamType.PS_ALL:
 				{
 					t_prefix = "p0_";
 				}break;
-			case ParamType.PS_1:
+			case InitParamType.PS_1:
 				{
 					t_prefix = "p1_";
 				}break;
-			case ParamType.PS_2:
+			case InitParamType.PS_2:
 				{
 					t_prefix = "p2_";
 				}break;
-			case ParamType.X_ALL:
+			case InitParamType.X_ALL:
 				{
 					t_prefix = "x0_";
 				}break;
-			case ParamType.X_1:
+			case InitParamType.X_1:
 				{
 					t_prefix = "x1_";
 				}break;
-			case ParamType.X_2:
+			case InitParamType.X_2:
 				{
 					t_prefix = "x2_";
 				}break;
-			case ParamType.A_ALL:
+			case InitParamType.A_ALL:
 				{
 					t_prefix = "a0_";
 				}break;
-			case ParamType.A_1:
+			case InitParamType.A_1:
 				{
 					t_prefix = "a1_";
 				}break;
-			case ParamType.A_2:
+			case InitParamType.A_2:
 				{
 					t_prefix = "a2_";
 				}break;
@@ -122,9 +99,9 @@ namespace BlueBack.Pad.UIM
 			float t_trigger_mul;
 			{
 				switch(a_type){
-				case ParamType.PS_1:
-				case ParamType.PS_2:
-				case ParamType.PS_ALL:
+				case InitParamType.PS_1:
+				case InitParamType.PS_2:
+				case InitParamType.PS_ALL:
 					{
 						t_trigger_add = 1.0f;
 						t_trigger_mul = 0.5f;

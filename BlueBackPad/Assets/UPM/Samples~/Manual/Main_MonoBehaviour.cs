@@ -52,7 +52,7 @@ namespace Samples.Pad.Manual
 		*/
 		private void Start()
 		{
-			BlueBack.Pad.UIM.InitParam t_param = BlueBack.Pad.UIM.InitParam.CreateDefault(BlueBack.Pad.UIM.InitParam.ParamType.PS_ALL);
+			BlueBack.Pad.UIM.InitParam t_param = BlueBack.Pad.UIM.InitParam.CreateDefault(BlueBack.Pad.UIM.InitParamType.PS_ALL);
 
 			//pad_update
 			#if(PAD_UPDATE)

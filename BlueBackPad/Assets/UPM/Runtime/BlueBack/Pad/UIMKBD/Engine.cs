@@ -17,13 +17,39 @@ namespace BlueBack.Pad.UIMKBD
 	{
 		/** param
 		*/
-		public InitParam param;
+		public Param param;
 
 		/** constructor
 		*/
-		public Engine(in InitParam a_param)
+		public Engine(in InitParam a_initparam)
 		{
-			this.param = a_param;
+			this.param.dir_l		= a_initparam.dir_l;
+			this.param.dir_r		= a_initparam.dir_r;
+			this.param.dir_u		= a_initparam.dir_u;
+			this.param.dir_d		= a_initparam.dir_d;
+
+			this.param.button_l		= a_initparam.button_l;
+			this.param.button_r		= a_initparam.button_r;
+			this.param.button_u		= a_initparam.button_u;
+			this.param.button_d		= a_initparam.button_d;
+
+			this.param.menu_l		= a_initparam.menu_l;
+			this.param.menu_r		= a_initparam.menu_r;
+			this.param.stick_l_xm	= a_initparam.stick_l_xm;
+			this.param.stick_l_xp	= a_initparam.stick_l_xp;
+			this.param.stick_l_ym	= a_initparam.stick_l_ym;
+			this.param.stick_l_yp	= a_initparam.stick_l_yp;
+			this.param.stick_r_xm	= a_initparam.stick_r_xm;
+			this.param.stick_r_xp	= a_initparam.stick_r_xp;
+			this.param.stick_r_ym	= a_initparam.stick_r_ym;
+			this.param.stick_r_yp	= a_initparam.stick_r_yp;
+
+			this.param.trigger_l_1	= a_initparam.trigger_l_1;
+			this.param.trigger_l_2	= a_initparam.trigger_l_2;
+			this.param.trigger_l_3	= a_initparam.trigger_l_3;
+			this.param.trigger_r_1	= a_initparam.trigger_r_1;
+			this.param.trigger_r_2	= a_initparam.trigger_r_2;
+			this.param.trigger_r_3	= a_initparam.trigger_r_3;
 		}
 
 		/** [BlueBack.Pad.Engine_Base]作成。
@@ -35,6 +61,12 @@ namespace BlueBack.Pad.UIMKBD
 		/** [BlueBack.Pad.Engine_Base]削除。
 		*/
 		public void Delete()
+		{
+		}
+
+		/** [BlueBack.Pad.Engine_Base]更新。
+		*/
+		public void PreUpdate()
 		{
 		}
 

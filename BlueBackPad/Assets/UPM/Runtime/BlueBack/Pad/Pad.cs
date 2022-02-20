@@ -216,6 +216,8 @@ namespace BlueBack.Pad
 		*/
 		private void DeviceUpdate()
 		{
+			this.engine.PreUpdate();
+
 			//スティック。
 			this.stick_l.pos_old = this.stick_l.pos;
 			this.stick_l.pos = this.engine.GetStickL();
