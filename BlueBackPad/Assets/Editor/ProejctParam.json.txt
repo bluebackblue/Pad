@@ -28,14 +28,14 @@
         ],
         "reference_list":[
             {
-                "use":"use",
+                "mode":"package",
                 "package_fullname":"BlueBack.UnityPlayerLoop",
                 "url":"https://github.com/bluebackblue/UpmUnityPlayerLoop"
             },
             {
-                "use":"use",
+                "mode":"package",
                 "package_fullname":"Unity.InputSystem",
-                "url":"https://docs.unity3d.com/ja/2019.4/Manual/com.unity.inputsystem.html"
+                "url":"https://docs.unity3d.com/Packages/com.unity.inputsystem@latest/index.html"
             }
         ]
     },
@@ -44,7 +44,7 @@
         ],
         "reference_list":[
             {
-                "use":"use",
+                "mode":"package",
                 "package_fullname":"BlueBack.Pad",
                 "url":"https://github.com/bluebackblue/UpmPad"
             }
@@ -55,12 +55,12 @@
         ],
         "reference_list":[
             {
-                "use":"use",
+                "mode":"package",
                 "package_fullname":"BlueBack.Pad",
                 "url":"https://github.com/bluebackblue/UpmPad"
             },
             {
-                "use":"use",
+                "mode":"package",
                 "package_fullname":"Unity.InputSystem",
                 "url":"https://docs.unity3d.com/ja/2019.4/Manual/com.unity.inputsystem.html"
             }

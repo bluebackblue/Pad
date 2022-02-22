@@ -1,8 +1,8 @@
 
 
-/** Samples.Pad.KeyBoard
+/** BlueBack.Pad.Samples.KeyBoard
 */
-namespace Samples.Pad.KeyBoard
+namespace BlueBack.Pad.Samples.KeyBoard
 {
 	/** Main_MonoBehaviour
 	*/

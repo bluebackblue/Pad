@@ -1,8 +1,8 @@
 
 
-/** Samples.Pad.InputManager
+/** BlueBack.Pad.Samples.InputManager
 */
-namespace Samples.Pad.InputManager
+namespace BlueBack.Pad.Samples.InputManager
 {
 	/** Main_MonoBehaviour
 	*/
