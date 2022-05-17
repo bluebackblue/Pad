@@ -18,7 +18,7 @@ MIT License
 * https://docs.unity3d.com/ja/2019.4/Manual/com.unity.inputsystem.html
 
 ## 動作確認
-Unity 2022.1.0b12
+Unity 2022.1.0b16
 
 ## UPM
 ### 最新

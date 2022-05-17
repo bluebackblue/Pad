@@ -7,6 +7,13 @@
 */
 
 
+/** define
+*/
+#if((ASMDEF_BLUEBACK_UNITYPLAYERLOOP)||(USERDEF_BLUEBACK_UNITYPLAYERLOOP))
+#define ASMDEF_TRUE
+#endif
+
+
 /** BlueBack.Pad
 */
 namespace BlueBack.Pad
@@ -71,6 +78,7 @@ namespace BlueBack.Pad
 		/** constructor
 		*/
 		public Pad(Mode a_mode,in InitParam a_initparam,Engine_Base a_engine)
+		#if(ASMDEF_TRUE)
 		{
 			//PlayerLoopSystem
 			{
@@ -150,10 +158,16 @@ namespace BlueBack.Pad
 				this.button_rt3.Init(in a_initparam);
 			}
 		}
+		#else
+		{
+			#warning "ASMDEF_TRUE"
+		}
+		#endif
 
 		/** [IDisposable]Dispose。
 		*/
 		public void Dispose()
+		#if(ASMDEF_TRUE)
 		{
 			//engine
 			this.engine.Delete();
@@ -164,6 +178,11 @@ namespace BlueBack.Pad
 			BlueBack.UnityPlayerLoop.Remove.RemoveFromType(ref t_playerloopsystem,typeof(PlayerLoopType.Device));
 			BlueBack.UnityPlayerLoop.UnityPlayerLoop.SetPlayerLoop(t_playerloopsystem);
 		}
+		#else
+		{
+			#warning "ASMDEF_TRUE"
+		}
+		#endif
 
 		/** Reset
 		*/

@@ -7,13 +7,22 @@
 */
 
 
+/** define
+*/
+#if(ASMDEF_COM_UNITY_INPUTSYSTEM)
+#define ASMDEF_TRUE
+#else
+#warning "ASMDEF_TRUE"
+#endif
+
+
 /** BlueBack.Pad.UISKBD
 */
+#if(ASMDEF_TRUE)
 namespace BlueBack.Pad.UISKBD
 {
 	/** Param
 	*/
-	#if(ENABLE_INPUT_SYSTEM)
 	public struct Param
 	{
 		/** device
@@ -63,6 +72,6 @@ namespace BlueBack.Pad.UISKBD
 		public UnityEngine.InputSystem.Key trigger_r_2;
 		public UnityEngine.InputSystem.Key trigger_r_3;
 	}
-	#endif
 }
+#endif
 

@@ -2,6 +2,7 @@
 
 /** BlueBack.Pad.Samples.KeyBoard
 */
+#if(!DEF_BLUEBACK_PAD_SAMPLES_DISABLE)
 namespace BlueBack.Pad.Samples.KeyBoard
 {
 	/** Main_MonoBehaviour
@@ -135,4 +136,5 @@ namespace BlueBack.Pad.Samples.KeyBoard
 		}
 	}
 }
+#endif
 

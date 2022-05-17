@@ -7,13 +7,22 @@
 */
 
 
+/** define
+*/
+#if(ASMDEF_COM_UNITY_INPUTSYSTEM)
+#define ASMDEF_TRUE
+#else
+#warning "ASMDEF_TRUE"
+#endif
+
+
 /** BlueBack.Pad.UISKBD
 */
+#if(ASMDEF_TRUE)
 namespace BlueBack.Pad.UISKBD
 {
 	/** Engine
 	*/
-	#if(ENABLE_INPUT_SYSTEM)
 	public sealed class Engine : Engine_Base
 	{
 		/** param
@@ -292,6 +301,6 @@ namespace BlueBack.Pad.UISKBD
 			return false;
 		}
 	}
-	#endif
 }
+#endif
 

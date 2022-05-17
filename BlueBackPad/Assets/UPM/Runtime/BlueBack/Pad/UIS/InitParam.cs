@@ -7,13 +7,22 @@
 */
 
 
+/** define
+*/
+#if(ASMDEF_COM_UNITY_INPUTSYSTEM)
+#define ASMDEF_TRUE
+#else
+#warning "ASMDEF_TRUE"
+#endif
+
+
 /** BlueBack.Pad.UIS
 */
+#if(ASMDEF_TRUE)
 namespace BlueBack.Pad.UIS
 {
 	/** InitParam
 	*/
-	#if(ENABLE_INPUT_SYSTEM)
 	public struct InitParam
 	{
 		/** device
@@ -29,6 +38,7 @@ namespace BlueBack.Pad.UIS
 			};
 		}
 	}
-	#endif
+	
 }
+#endif
 

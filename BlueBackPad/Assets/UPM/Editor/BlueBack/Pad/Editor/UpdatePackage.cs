@@ -22,7 +22,7 @@ namespace BlueBack.Pad.Editor
 
 		/** MenuItem_UpdatePackage_Develop
 		*/
-		#if(!DEF_USER_BLUEBACK_PAD)
+		#if(!USERDEF_BLUEBACK_PAD)
 		[UnityEditor.MenuItem("BlueBack/Pad/UpdatePackage/Develop")]
 		#endif
 		public static void MenuItem_UpdatePackage_Develop()
@@ -40,7 +40,7 @@ namespace BlueBack.Pad.Editor
 
 		/** MenuItem_UpdatePackage_Last
 		*/
-		#if(!DEF_USER_BLUEBACK_PAD)
+		#if(!USERDEF_BLUEBACK_PAD)
 		[UnityEditor.MenuItem("BlueBack/Pad/UpdatePackage/Last " + Version.packageversion)]
 		#endif
 		public static void MenuItem_UpdatePackage_Last()
