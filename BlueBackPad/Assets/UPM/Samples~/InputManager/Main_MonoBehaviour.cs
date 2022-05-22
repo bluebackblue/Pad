@@ -107,7 +107,7 @@ namespace BlueBack.Pad.Samples.InputManager
 			if(this.pad.stick_r.pos.y != 0.0f){
 				UnityEngine.Debug.Log("stick_r.pos.y : " + this.pad.stick_r.pos.y.ToString("0.0000"));
 			}
-			
+
 			if(this.pad.analog_lt2.value != 0.0f){
 				UnityEngine.Debug.Log("analog_lt2 : " + this.pad.analog_lt2.value.ToString("0.0000"));
 			}

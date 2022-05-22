@@ -23,7 +23,7 @@ namespace BlueBack.Pad.Samples.InputSystem
 		{
 			//Param
 			BlueBack.Pad.UIS.InitParam t_param = BlueBack.Pad.UIS.InitParam.CreateDefault();
-			
+
 			//Update用。
 			this.pad = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.Update,BlueBack.Pad.InitParam.CreateDefault(),new BlueBack.Pad.UIS.Engine(t_param));
 
@@ -108,7 +108,7 @@ namespace BlueBack.Pad.Samples.InputSystem
 			if(this.pad.stick_r.pos.y != 0.0f){
 				UnityEngine.Debug.Log("stick_r.pos.y : " + this.pad.stick_r.pos.y.ToString("0.0000"));
 			}
-			
+
 			if(this.pad.analog_lt2.value != 0.0f){
 				UnityEngine.Debug.Log("analog_lt2 : " + this.pad.analog_lt2.value.ToString("0.0000"));
 			}

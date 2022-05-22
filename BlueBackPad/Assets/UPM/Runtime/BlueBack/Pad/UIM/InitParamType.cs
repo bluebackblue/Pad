@@ -20,7 +20,7 @@ namespace BlueBack.Pad.UIM
 		PS_ALL,
 		PS_1,
 		PS_2,
-			
+
 		/** Xコントローラ。全コントローラ。
 		*/
 		X_ALL,

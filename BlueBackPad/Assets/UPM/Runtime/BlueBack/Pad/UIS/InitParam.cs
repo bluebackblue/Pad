@@ -38,7 +38,6 @@ namespace BlueBack.Pad.UIS
 			};
 		}
 	}
-	
 }
 #endif
 

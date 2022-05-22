@@ -37,7 +37,7 @@ namespace BlueBack.Pad.Samples.Manual
 		private UnityEngine.UI.Text text_update;
 		private int value_update;
 		#endif
-		
+
 		#if(PAD_FIXEDUPDATE)
 		private UnityEngine.UI.Text text_fixedupdate;
 		private int value_fixedupdate;
