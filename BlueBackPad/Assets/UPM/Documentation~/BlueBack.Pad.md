@@ -11,6 +11,7 @@ MIT License
 ### ランタイム
 * https://github.com/bluebackblue/UpmUnityPlayerLoop
 * https://docs.unity3d.com/Packages/com.unity.inputsystem@latest/index.html
+* https://github.com/bluebackblue/UpmDebug
 ### エディター
 * https://github.com/bluebackblue/UpmPad
 ### サンプル
@@ -22,7 +23,7 @@ Unity 2022.1.0b16
 
 ## UPM
 ### 最新
-* https://github.com/bluebackblue/UpmPad.git?path=BlueBackPad/Assets/UPM#0.0.22
+* https://github.com/bluebackblue/UpmPad.git?path=BlueBackPad/Assets/UPM#0.0.23
 ### 開発
 * https://github.com/bluebackblue/UpmPad.git?path=BlueBackPad/Assets/UPM
 
