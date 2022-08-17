@@ -16,7 +16,7 @@ MIT License
 * https://github.com/bluebackblue/UpmPad
 ### サンプル
 * https://github.com/bluebackblue/UpmPad
-* https://docs.unity3d.com/ja/2019.4/Manual/com.unity.inputsystem.html
+* https://docs.unity3d.com/Packages/com.unity.inputsystem@latest/index.html
 
 ## 動作確認
 Unity 2022.1.0b16
