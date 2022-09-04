@@ -20,14 +20,28 @@ namespace BlueBack.Pad.Samples.InputManager
 		*/
 		private void Start()
 		{
-			//Param
-			BlueBack.Pad.UIM.InitParam t_param = BlueBack.Pad.UIM.InitParam.CreateDefault(BlueBack.Pad.UIM.InitParamType.X_ALL);
+			//initparam
+			BlueBack.Pad.UIM.InitParam t_initparam_uim = BlueBack.Pad.UIM.InitParam.CreateDefault(BlueBack.Pad.UIM.InitParamType.X_ALL);
 
 			//Update用。
-			this.pad = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.Update,BlueBack.Pad.InitParam.CreateDefault(),new BlueBack.Pad.UIM.Engine(t_param));
+			{
+				BlueBack.Pad.InitParam t_initparam = BlueBack.Pad.InitParam.CreateDefault();
+				{
+					t_initparam.updatemode = UpdateMode.UnityUpdate;
+					t_initparam.engine = new BlueBack.Pad.UIM.Engine(t_initparam_uim);
+				}
+				this.pad = new BlueBack.Pad.Pad(in t_initparam);
+			}
 
 			//FixedUpdate用。
-			this.pad_fixedupdate = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.FixedUpdate,BlueBack.Pad.InitParam.CreateDefault(),new BlueBack.Pad.UIM.Engine(t_param));
+			{
+				BlueBack.Pad.InitParam t_initparam = BlueBack.Pad.InitParam.CreateDefault();
+				{
+					t_initparam.updatemode = UpdateMode.UnityFixedUpdate;
+					t_initparam.engine = new BlueBack.Pad.UIM.Engine(t_initparam_uim);
+				}
+				this.pad_fixedupdate = new BlueBack.Pad.Pad(in t_initparam);
+			}
 		}
 
 		/** OnDestroy

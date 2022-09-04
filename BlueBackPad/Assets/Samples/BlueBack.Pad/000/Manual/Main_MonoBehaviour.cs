@@ -54,27 +54,52 @@ namespace BlueBack.Pad.Samples.Manual
 		*/
 		private void Start()
 		{
-			BlueBack.Pad.UIM.InitParam t_param = BlueBack.Pad.UIM.InitParam.CreateDefault(BlueBack.Pad.UIM.InitParamType.PS_ALL);
+			//initparam
+			BlueBack.Pad.UIM.InitParam t_initparam_uim = BlueBack.Pad.UIM.InitParam.CreateDefault(BlueBack.Pad.UIM.InitParamType.PS_ALL);
 
 			//pad_update
 			#if(PAD_UPDATE)
-			this.pad_update = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.Update,BlueBack.Pad.InitParam.CreateDefault(),new BlueBack.Pad.UIM.Engine(t_param));
-			this.text_update = UnityEngine.GameObject.Find("Text_Update").GetComponent<UnityEngine.UI.Text>();
-			this.value_update = 0;
+			{
+				BlueBack.Pad.InitParam t_initparam = BlueBack.Pad.InitParam.CreateDefault();
+				{
+					t_initparam.updatemode = UpdateMode.UnityUpdate;
+					t_initparam.engine = new BlueBack.Pad.UIM.Engine(in t_initparam_uim);
+				}
+
+				this.pad_manual = new BlueBack.Pad.Pad(in t_initparam);
+				this.text_update = UnityEngine.GameObject.Find("Text_Update").GetComponent<UnityEngine.UI.Text>();
+				this.value_update = 0;
+			}
 			#endif
 
 			//pad_fixedupdate
 			#if(PAD_FIXEDUPDATE)
-			this.pad_fixedupdate = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.FixedUpdate,BlueBack.Pad.InitParam.CreateDefault(),new BlueBack.Pad.UIM.Engine(t_param));
-			this.text_fixedupdate = UnityEngine.GameObject.Find("Text_FixedUpdate").GetComponent<UnityEngine.UI.Text>();
-			this.value_fixedupdate = 0;
+			{
+				BlueBack.Pad.InitParam t_initparam = BlueBack.Pad.InitParam.CreateDefault();
+				{
+					t_initparam.updatemode = UpdateMode.UnityFixedUpdate;
+					t_initparam.engine = new BlueBack.Pad.UIM.Engine(in t_initparam_uim);
+				}
+
+				this.pad_manual = new BlueBack.Pad.Pad(in t_initparam);
+				this.text_fixedupdate = UnityEngine.GameObject.Find("Text_FixedUpdate").GetComponent<UnityEngine.UI.Text>();
+				this.value_fixedupdate = 0;
+			}
 			#endif
 
 			//マニュアル呼び出し。
 			#if(PAD_MANUAL)
-			this.pad_manual = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.Manual,BlueBack.Pad.InitParam.CreateDefault(),new BlueBack.Pad.UIM.Engine(t_param));
-			this.text_manual = UnityEngine.GameObject.Find("Text_Manual").GetComponent<UnityEngine.UI.Text>();
-			this.value_manual = 0;
+			{
+				BlueBack.Pad.InitParam t_initparam = BlueBack.Pad.InitParam.CreateDefault();
+				{
+					t_initparam.updatemode = UpdateMode.ManualUpdate;
+					t_initparam.engine = new BlueBack.Pad.UIM.Engine(in t_initparam_uim);
+				}
+
+				this.pad_manual = new BlueBack.Pad.Pad(in t_initparam);
+				this.text_manual = UnityEngine.GameObject.Find("Text_Manual").GetComponent<UnityEngine.UI.Text>();
+				this.value_manual = 0;
+			}
 			#endif
 
 			//表示。
@@ -154,7 +179,7 @@ namespace BlueBack.Pad.Samples.Manual
 			#if(PAD_MANUAL)
 
 			//マニュアル呼び出し。
-			this.pad_manual.StatusUpdate();
+			this.pad_manual.ManualUpdate();
 
 			if(this.pad_manual.dir_l.rapid == true){
 				this.value_manual++;

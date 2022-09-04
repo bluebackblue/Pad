@@ -9,6 +9,8 @@ namespace BlueBack.Pad.Samples.InputSystem
 	*/
 	public sealed class Main_MonoBehaviour : UnityEngine.MonoBehaviour
 	{
+		#if(ENABLE_INPUT_SYSTEM)
+
 		/** Update用。
 		*/
 		private BlueBack.Pad.Pad pad;
@@ -21,14 +23,28 @@ namespace BlueBack.Pad.Samples.InputSystem
 		*/
 		private void Start()
 		{
-			//Param
-			BlueBack.Pad.UIS.InitParam t_param = BlueBack.Pad.UIS.InitParam.CreateDefault();
+			//initparam
+			BlueBack.Pad.UIS.InitParam t_initparam_uis = BlueBack.Pad.UIS.InitParam.CreateDefault();
 
 			//Update用。
-			this.pad = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.Update,BlueBack.Pad.InitParam.CreateDefault(),new BlueBack.Pad.UIS.Engine(t_param));
+			{
+				BlueBack.Pad.InitParam t_initparam = BlueBack.Pad.InitParam.CreateDefault();
+				{
+					t_initparam.updatemode = UpdateMode.UnityUpdate;
+					t_initparam.engine = new BlueBack.Pad.UIS.Engine(in t_initparam_uis);
+				}
+				this.pad = new BlueBack.Pad.Pad(in t_initparam);
+			}
 
 			//FixedUpdate用。
-			this.pad_fixedupdate = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.FixedUpdate,BlueBack.Pad.InitParam.CreateDefault(),new BlueBack.Pad.UIS.Engine(t_param));
+			{
+				BlueBack.Pad.InitParam t_initparam = BlueBack.Pad.InitParam.CreateDefault();
+				{
+					t_initparam.updatemode = UpdateMode.UnityFixedUpdate;
+					t_initparam.engine = new BlueBack.Pad.UIS.Engine(in t_initparam_uis);
+				}
+				this.pad_fixedupdate = new BlueBack.Pad.Pad(in t_initparam);
+			}
 		}
 
 		/** OnDestroy
@@ -134,6 +150,8 @@ namespace BlueBack.Pad.Samples.InputSystem
 				UnityEngine.Debug.Log("Update : Up");
 			}
 		}
+
+		#endif
 	}
 }
 #endif

@@ -21,14 +21,29 @@ namespace BlueBack.Pad.Samples.KeyBoard
 		*/
 		private void Start()
 		{
-			//Param
-			BlueBack.Pad.UISKBD.InitParam t_param = BlueBack.Pad.UISKBD.InitParam.CreateDefault();
+			//initparam
+			BlueBack.Pad.UISKBD.InitParam t_initparam_uiskbd = BlueBack.Pad.UISKBD.InitParam.CreateDefault();
 
 			//Update用。
-			this.pad = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.Update,BlueBack.Pad.InitParam.CreateDefault(),new BlueBack.Pad.UISKBD.Engine(t_param));
+			{
+				BlueBack.Pad.InitParam t_initparam = BlueBack.Pad.InitParam.CreateDefault();
+				{
+					t_initparam.updatemode = UpdateMode.UnityUpdate;
+					t_initparam.engine = new BlueBack.Pad.UISKBD.Engine(in t_initparam_uiskbd);
+
+				}
+				this.pad = new BlueBack.Pad.Pad(in t_initparam);
+			}
 
 			//FixedUpdate用。
-			this.pad_fixedupdate = new BlueBack.Pad.Pad(BlueBack.Pad.Mode.FixedUpdate,BlueBack.Pad.InitParam.CreateDefault(),new BlueBack.Pad.UISKBD.Engine(t_param));
+			{
+				BlueBack.Pad.InitParam t_initparam = BlueBack.Pad.InitParam.CreateDefault();
+				{
+					t_initparam.updatemode = UpdateMode.UnityFixedUpdate;
+					t_initparam.engine = new BlueBack.Pad.UISKBD.Engine(in t_initparam_uiskbd);
+				}
+				this.pad_fixedupdate = new BlueBack.Pad.Pad(in t_initparam);
+			}
 		}
 
 		/** OnDestroy
